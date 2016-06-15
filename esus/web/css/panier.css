@@ -1,0 +1,76 @@
+#section1 {
+  padding-bottom: 50px;
+}
+
+/*Texte*/
+.formTitle {
+  font-family: "helveticaNeueCdnBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+.entetePanier{
+  margin-bottom: 30px;
+}
+/*Gestion de l'affichage */
+
+.table {
+  width: 75%;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+  padding-left: 0;
+  border-top: 0;
+}
+table > thead > tr {
+  border-style: solid;
+  border-left: 0;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-color: #000;
+}
+.table > thead > tr > th {
+  width: auto;
+  border-bottom: 0;
+  border-top: 0;
+}
+.esusSelect {
+  border: 0;
+}
+.table> tbody: first-child > tr:first-child > td {
+  width: 15%;
+}
+.table> thead: first-child > tr:first-child > th {
+  width: 15%;
+}
+.dl-horizontal {
+  width: 75%;
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+.dl-horizontal dt {
+  width: auto;
+}
+.dl-horizontal dd {
+  margin-left: 0;
+  width: 50%;
+  text-align: right;
+}
+
+/*gestion mobile*/
+
+@media screen and (max-width: 767px) {
+  .table {
+    width: 100%;
+  }
+  .dl-horizontal dd {
+    text-align: left;
+  }
+  .formTitle{
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .dl-horizontal {
+    padding-left: 30px;
+  }
+}

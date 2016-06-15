@@ -1,0 +1,65 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<input type="hidden" id="localisation" name="localisation" value="{{ app.request.uri }}"/>
+<div class="wrapper">
+    <section id="section1">
+      <div class="content">
+        <div>
+          <img src="{{ asset('img/compte/imgHeadMobile.png') }}" class="img-responsive col-xs-12 nopadding hidden-sm hidden-md hidden-lg hidden-xl">
+          <img src="{{ asset('img/compte/imgHead.jpg') }}" class="img-responsive col-sm-12 nopadding hidden-xs">
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <section id="section2">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3">
+          <div class="row">
+            <h4 class="formTitle">mes informations</h4>
+          </div>
+          <div class="col-xs-10 col-xs-offset-1">
+            <div class="row">
+            	<div class="row">
+                  	<!-- pour l'organisation desktop/tablets -->
+                  	<div class="hidden-xs col-sm-6">
+						{% for flashMessage in app.session.flashbag.get('success') %}
+						  <div class="alert alert-success">{{ flashMessage }}</div>
+						{% endfor %}
+						{% set sexe = '' %}
+						{% if user.civilite == '0' %}
+							{% set sexe = 'Mr' %}
+						{% else %}
+							{% set sexe = 'Mme' %}
+						{% endif %}
+						<p><strong>{{ 'Civilité'|trans }} :</strong> {{ sexe }}</p>
+						<p><strong>{{ 'profile.show.username'|trans }} :</strong> {{ user.username }}</p>
+						<p><strong>{{ 'profile.show.email'|trans }} :</strong> {{ user.email }}</p>
+						<p><strong>{{ 'Téléphone'|trans }} :</strong> {{ user.telephone }}</p>
+						<p><strong>{{ 'Nom'|trans }} :</strong> {{ user.nom }}</p>
+						<p><strong>{{ 'Prénom'|trans }} :</strong> {{ user.prenom }}</p>
+						<p><strong>{{ 'Adresse'|trans }} :</strong> {{ user.adresse }}</p>
+						<p><strong>{{ 'Code postal'|trans }} :</strong> {{ user.codePostal }}</p>
+						<p><strong>{{ 'Ville'|trans }} :</strong> {{ user.ville }}</p>
+						<p id="paysCountry"></p>
+						<div style="display:none" id="userPays">{{ user.pays }}</div>
+						<form name="profilEdition">
+							<div style="display:none">{{ form_widget(form) }}</div>
+						</form>
+						<script>
+							for(var i=0; i<document.forms['profilEdition'].elements[0].options.length; i++) {
+								if(document.forms['profilEdition'].elements[0].options[i].value == document.getElementById('userPays').innerHTML) {
+									document.forms['profilEdition'].elements[0].selectedIndex =i;
+								}
+							}
+							document.getElementById('paysCountry').innerHTML = '<strong>Pays :</strong> ' + document.forms['profilEdition'].elements[0].options[document.forms['profilEdition'].elements[0].selectedIndex].text;
+						</script>
+					</div>
+					<div class="hidden-xs col-sm-6">
+                  		<div class=" col-xs-12 col-sm-6 pull-left">
+							<a href="{{ path('fos_user_profile_edit') }}" class="lienFormulaire">Modifier mes informations</a>
+					  	</div>
+                  	</div>
+				</div>
+  			</div>
+        </div>
+      </div>
+    </section>
+</div>

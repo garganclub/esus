@@ -1,0 +1,129 @@
+{% extends "::base.html.twig" %}
+{% block metadesc %}
+  <meta title="Ateliers Esus, panier de votre commande">
+  <meta desc="Panier pour une commande chez les ateliers Esus">
+{% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('css/panier.css') }}">
+{% endblock %}
+{% block title %}Votre panier{% endblock %}
+{% block body %}
+{% set totalHT = 0 %}
+{% set tva = 0 %}
+{% set totalTTC = 0 %}
+	<input type="hidden" id="localisation" name="localisation" value="{{ app.request.uri }}"/>
+    <section id="section1">
+      <div class="content">
+        <div>
+          <img src="{{ asset('img/panier/imgHeadMobile.png') }}" class="img-responsive col-xs-12 nopadding hidden-sm hidden-md hidden-lg hidden-xl">
+          <img src="{{ asset('img/panier/imgHead.jpg') }}" class="img-responsive col-sm-12 nopadding hidden-xs">
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <section id="section2">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-2">
+          <div class="row">
+            <div>
+              <h2 class="formTitle">Récapitulatif de la commande</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-push-1">
+              <div class="row">
+                <h4 class="entetePanier">Récapitulatif</h4>
+				{% if produits|length == 0 and reservations|length == 0 %}
+				<tr>
+					<td colspan="5">Aucun article dans votre panier</td>
+				</tr>
+				{% elseif produits|length == 1 %}
+					<p>Votre panier contient <span class="nombreProduits">{{ produits|length }}</span> produit.</p>
+				{% else %}
+					<p>Votre panier contient <span class="nombreProduits">{{ produits|length }}</span> produits.</p>
+				{% endif %}
+              </div>
+              <script>
+				  function redirection() {
+				    location.href="{{ path('produits_calendrier') }}";
+				  }
+			  </script>
+              <div class="row">
+                <div class="row nopadding">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Référence</th>
+                        <th>Quantité</th>
+                        <th>Unité HT</th>
+                        <th>Total HT</th>
+                        <th>Total TTC</th>
+                      </tr>
+                    </thead>
+                    <tbody>                   
+                      	{% for produit in produits %}
+							<tr>
+								<form action="{{ path('panier_ajouter', {'id' : produit.id}) }}" method="get">
+									<td>{{ produit.titre }}</td>
+									<td>
+										<select name="qte" class="esusSelect" onchange="this.form.submit()">
+											{% for i in 1..10 %}
+												<option value="{{ i }}" {% if i == panier[produit.id] %}selected="selected"{% endif %}>{{ i }}</option>
+											{% endfor %}
+										</select>&nbsp;
+										<a href="{{ path('panier_supprimer', {'id' : produit.id}) }}"><i class="glyphicon glyphicon-remove"></i></a>
+									</td>
+									<td>{{ produit.tarif|round(2) }} €</td>
+									<td>{{ produit.tarif * panier[produit.id]|round(2) }} €</td>
+									<td>{{ (produit.tarif * panier[produit.id]) + ((produit.tarif * panier[produit.id]) * produit.tva.valeur / 100)|round(2) }} €</td>
+								</form>
+							</tr>
+							{% set totalHT = totalHT + (produit.tarif * panier[produit.id]) %}
+							{% set tva = tva + ((produit.tarif * panier[produit.id]) * produit.tva.valeur / 100) %}
+							{% set totalTTC = totalTTC + (produit.tarif * panier[produit.id]) + ((produit.tarif * panier[produit.id]) * produit.tva.valeur / 100) %}
+						{% endfor %}
+						{% if reservations|length > 0 %}
+							<td>Réservation Atelier Bois Poste n°1</td>
+							<td>
+								{% if reservations|length  == 1 %}
+									{{ reservations|length }} jour&nbsp;
+								{% else %}
+									{{ reservations|length }} jours&nbsp;
+								{% endif %}
+								<input type="button" value="Modifier" onclick="redirection()"/>
+							</td>
+							<td>45 €</td>
+							<td>{{ reservations|length * 45 }} €</td>
+							<td>{{ (reservations|length * 45) + ((reservations|length * 45) * 20) / 100 }} €</td>
+							{% set totalHT = totalHT + reservations|length * 45 %}
+							{% set tva = tva + ((reservations|length * 45) * 20) / 100 %}
+							{% set totalTTC = totalTTC + (reservations|length * 45) + ((reservations|length * 45) * 20) / 100 %}
+						{% endif %}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 col-sm-push-6">
+                    {% if produits|length != 0 or reservations|length != 0 %}
+						<dl class="dl-horizontal">
+							<dt>Total HT :</dt>
+							<dd>{{ totalHT|round(2) }} €</dd>
+							<dt>TVA :</dt>
+							<dd>{{ tva|round(2) }} €</dd>
+							<dt>Total:</dt>
+							<dd>{{ totalTTC|round(2) }} €</dd>
+						</dl>
+					{% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-9 boutonsPanier">
+            <button href="" class="btnNoir btn pull-left col-xs-12 col-sm-5 col-lg-4 col-xl-3">Continuer mes achats</button>
+            <button href="" class="btn btnNoir pull-right col-xs-12 col-sm-5 col-lg-4 col-xl-3">Valider mon panier</button>
+          </div>
+        </div>
+      </section>
+    </div>				
+{% endblock %}

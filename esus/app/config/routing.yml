@@ -1,0 +1,16 @@
+pages:
+    resource: "@PagesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+produits:
+    resource: "@ProduitsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+accueil:
+    resource: "@AccueilBundle/Resources/config/routing.yml"
+    prefix:   /
+
+utilisateurs:
+    resource: "@UtilisateursBundle/Resources/config/routing.yml"
+    prefix:   /
+

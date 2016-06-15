@@ -1,0 +1,174 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+	<input type="hidden" id="localisation" name="localisation" value="{{ app.request.uri }}"/>
+    <section id="section1">
+      <div class="content sectionVideo">
+        <div class="imgMobileHead hidden-sm hidden-md hidden-lg">
+          <img src="{{ asset('img/imgHeadMobile.png') }}" class="img-responsive">
+        </div>
+        <div id="videoContainer" class="hidden-xs">
+          <video preload="true" autoplay="autoplay" loop="true" id="bgvid" class="videoFS">
+            <source src="{{ asset('video/ESUS_V4.webm') }}" type="video/webm">
+            <source src="{{ asset('video/ESUS_V4.mp4') }}" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="content">
+        <section id="section2">
+          <div class="row">
+            <div class="creaLyonHeader col-xs-12 col-md-6 col-md-push-3">
+              <img src="{{ asset('img/creaLyonLogoMedium.png') }}" alt="la création lyonnaise logo" class="creaLyonLogo hidden-xs img-responsive col-sm-12 col-md-6">
+              <div id="creaLyonDesc" class="col-xs-12 col-md-6">
+                <p class="textDesc">
+                  Pellentesque quis orci sit amet arcu luctus faucibus at in tellus. Aliquam sit amet tristique neque.
+                  <br /> Pellentesque at dolor est. Sed in eleifend elit. Morbi dictum porta dapibus. Curabitur fermentum convallis mauris, id bibendum eros porttitor eu. Curabitur porttitor blandit massa non imperdiet. Mauris et justo vitae dui auctor tempus.
+                  <br /> Ut pellentesque lectus eget enim blandit, eget semper odio iaculis. Mauris ullamcorper eget diam sed dapibus.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row sliderWorkshop">
+            <div id="homeCarousel" class="hidden-xs">
+              <h1 class="sliderTitle col-md-10 col-md-offset-2">Les derniers workshop d'ésus : </h1>
+              <!-- Carroussel -->
+              <div id="carouselWS" class="carousel slide  col-md-push-3" data-ride="carousel">
+                <div class="row">
+                  <div class="carousel-inner nopadding" role="listbox">
+                    <div class="item active">
+                      <img src="{{ asset('img/imgSlider.jpg') }}" alt="derniers workshop, première slide" class="first-slide img-responsive">
+                      <div class="carousel-caption pull-right">
+                        <p class="titre">workshop impression 3D</p>
+                        <button type="button" name="BtnWorkshopInfo" id="ReadWorkshopInfo" class="btn">
+                          <a href="">lire</a>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/imgSlider.jpg') }}" alt="derniers workshop, deuxième slide" class="second-slide img-responsive">
+                      <div class="carousel-caption pull-right">
+                        <p class="titre">workshop impression 3D</p>
+                        <button type="button" name="BtnWorkshopInfo2" id="ReadWorkshopInfo2" class="btn">
+                          <a href="">lire</a>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/imgSlider.jpg') }}" alt="derniers workshop, troisième slide" class="third-slide img-responsive">
+                      <div class="carousel-caption pull-right">
+                        <p class="titre">workshop impression 3D</p>
+                        <button type="button" name="BtnWorkshopInfo3" id="ReadWorkshopInfo3" class="btn">
+                          <a href="">lire</a>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- indicators -->
+                  <div class="row">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselWS" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselWS" data-slide-to="1"></li>
+                      <li data-target="#carouselWS" data-slide-to="2"></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="section3">
+          <div id="ateliersCategories" class="presAteliers">
+            <!-- pour le mobile -->
+            <div class="hidden-sm hidden-md hidden-lg hidden-xl">
+              <a href="" id="catBois">
+                <img src="{{ asset('img/atelierBoisMobile.png') }}" alt="" class="img-responsive">
+              </a>
+              <a href="" id="cat3d">
+                <img src="{{ asset('img/atelier3DMobile.png') }}" alt="" class="img-responsive">
+              </a>
+              <a href="" id="catElectronique">
+                <img src="{{ asset('img/atelierElecMobile.png') }}" alt="" class="img-responsive">
+              </a>
+              <a href="" id="catTextile">
+                <img src="{{ asset('img/atelierTextileMobile.png') }}" alt="" class="img-responsive">
+              </a>
+              <!-- fin gestion des catégories mobiles -->
+            </div>
+            <div class="row hidden-xs">
+              <div class="col-sm-6 col-sm-push-3 col-xl-9">
+                <a href="" id="catBois">
+                  <img src="{{ asset('img/atelierBoisMedium.png') }}" alt="" class="img-responsive hidden-xs col-sm-5 col-sm-push-1 col-xl-2 col-xl-push-4">
+                </a>
+                <a href="" id="cat3d">
+                  <img src="{{ asset('img/atelier3DMedium.png') }}" alt="" class="img-responsive hidden-xs col-sm-5 col-sm-push-1 col-xl-2 col-xl-push-4">
+                </a>
+              </div>
+            </div>
+            <div class="row hidden-xs">
+              <div class="col-sm-6 col-sm-push-3 col-xl-9">
+                <a href="" id="catElectronique">
+                  <img src="{{ asset('img/atelierElecMedium.png') }}" alt="" class="img-responsive hidden-xs col-sm-5 col-sm-push-1 col-xl-2 col-xl-push-4">
+                </a>
+                <a href="" id="catTextile">
+                  <img src="{{ asset('img/atelierTextileMedium.png') }}" alt="" class="img-responsive hidden-xs col-sm-5 col-sm-push-1 col-xl-2 col-xl-push-4">
+                </a>
+              </div>
+            </div>
+            <div class="row hidden-sm hidden-md hidden-lg hidden-xl">
+              <span class="col-xs-4 col-xs-push-4">&</span>
+            </div>
+        </section>
+        <section id="section4">
+          <div class="offresEsus">
+            <div class="row">
+              <div class="offre col-xs-12 col-sm-6 col-md-4 col-xl-3 col-md-push-2 col-xl-push-3">
+                <a href="">
+                  <img src="{{ asset('img/formationMedium.png') }}" alt="" id="offre1Img" class="img-responsive hidden-xs">
+                  <img src="{{ asset('img/formationMobile.png') }}" alt="" id="offre1Img" class="img-responsive hidden-sm hidden-md hidden-lg hidden-xl">
+                </a>
+                <a href="" class="btn btn-remp hidden-xs col-sm-6 col-sm-push-3 col-xl-push-3">découvrir les offres</a>
+              </div>
+              <div class="offre col-xs-12 col-sm-6 col-md-4 col-xl-3 col-md-push-2 col-xl-push-3">
+                <a href="">
+                  <img src="{{ asset('img/coworkingMedium.png') }}" alt="" id="offre2Img" class="img-responsive hidden-xs">
+                  <img src="{{ asset('img/coworkingMobile.png') }}" alt="" id="offre2Img" class="img-responsive hidden-sm hidden-md hidden-lg hidden-xl">
+                </a>
+                <a href="" class="btn btn-remp hidden-xs col-sm-6 col-sm-push-3 col-xl-push-3">découvrir les offres</a>
+              </div>
+            </div>
+            <div class="divideSection4 hidden-xs hidden-sm col-md-6 col-md-push-3 col-xl-4 col-xl-push-4">
+              <hr>
+            </div>
+          </div>
+        </section>
+        <section id="section5">
+          <div id="contact">
+            <div class="col-xs-12 col-md-push-2 col-xl-push-3 contactHeader">
+              <span>NOUS TROUVER</span>
+            </div>
+            <div id="mapEsus" class="col-sm-12 col-md-4 col-md-push-2 col-xl-push-3 hidden-xs hidden-sm">
+            </div>
+            <div class="infoContact col-xs-12 col-sm-12 col-md-4 col-md-push-1 col-xl-push-2">
+              <div id="adresseEsus" class="texteContact">
+                <p>13</p>
+                <p>Rue Bouteille</p>
+                <p>69001 LYON</p>
+              </div>
+              <div id="contactEsus" class="texteContact">
+                <p>33 (0) 4 25 27 67 95</p>
+                <p>contact@ateliersesus.com</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+  <!-- gestion de la map  -->
+  <script src="{{ asset('js/mapEsus.js') }}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+{% endblock %}

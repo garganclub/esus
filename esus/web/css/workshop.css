@@ -1,0 +1,143 @@
+#section2 > div {
+  padding-left: 0;
+  padding-right: 0;
+}
+#section2 > div:first-child > div {
+  padding-left: 0;
+  padding-right: 0;
+}
+#section2 > div > div > .formTitle {
+  margin-top: 60px;
+  ;
+  margin-bottom: 40px;
+  font-size: 45px;
+}
+#section3 > .row > div {
+  padding-left: 30px;
+  padding-right: 60px;
+}
+#section3 > .row > div > .divider {
+  border-top-color: #000;
+}
+.formTitle {
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 45px;
+}
+.titreWS {
+  font-family: "helveticaNeueBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: right;
+  padding-right: 5px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+.WSDesc {
+  font-family: "helveticaNeue", "Helvetica", arial, sans-serif;
+  font-size: 12px;
+  text-align: right;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-right: 5px;
+}
+.prix {
+  font-family: "helveticaNeueBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: right;
+  padding-right: 5px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+/*ORAGANISATION ARTICLES*/
+
+.WSContainer {
+  margin-bottom: 30px;
+}
+.WSContainer > a:first-child {
+  padding: 0;
+}
+.WSAlign {
+  height: 400px;
+}
+.row > div > div > div > hr {
+  border-top: 1px solid #000;
+  margin: 0 15px 0 10px;
+}
+
+/*GESTION MOBILES*/
+
+@media screen and (max-width: 767px) {
+  .img-responsive {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+  }
+  #section2 > div > div > .formTitle {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .formTitle {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 40px;
+  }
+  .WSContainer{
+    margin-bottom: 10px;
+  }
+  .titreWS {
+    font-family: "helveticaNeueCdnBold", "HelveticaBold", arial, sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    padding-right: 15px;
+    color: #FFF;
+    margin-bottom: 5px;
+  }
+  .WSAlign{
+    height: auto;
+  }
+  .WSAlign > a:first-child {
+    margin-top: -250px;
+  }
+  .WSAlign > a {
+    margin-top: -45px;
+  }
+  .WSDesc {
+    font-family: "helveticaNeue", "Helvetica", arial, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 0;
+    padding-right: 15px;
+    margin-bottom: 5px;
+    color: #FFF;
+  }
+  .prix {
+    margin-top: -5px;
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    padding-right: 10px;
+  }
+}
+
+/*GESTION TABLETS & DESKTOP*/
+
+@media screen and (min-width: 768px) {
+  .img-responsive {
+    padding-left: 0;
+    padding-right: 20px;
+    margin: 0;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .row > div > div > div > hr {
+    border-top: 1px solid #000;
+    margin-right: 15px;
+    margin-top: 100px;
+    margin-left: 0;
+  }
+}

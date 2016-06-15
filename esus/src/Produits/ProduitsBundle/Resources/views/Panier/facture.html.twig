@@ -1,0 +1,68 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div id="entete" class="span12">
+				<h2>Votre facture <i class="icon-file"></i></h2>
+				<div id="champ" class="span3">
+					{% include 'AccueilBundle:Modules:navigation.html.twig' %}
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+						{% include 'UtilisateursBundle:Modules:utilisateurConnecte.html.twig' %}
+					{% else %}
+						{% include 'UtilisateursBundle:Modules:utilisateurDeconnecte.html.twig' %}
+					{% endif %}
+				</div>
+				<div class="liens span7 paddingRight bords">
+					<form>
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>Références</th>
+									<th>Quantité</th>
+									<th>Prix unitaire</th>
+									<th>Total HT</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>AB29837</td>
+									<td>
+										<select class="span1"><option>1</option></select>&nbsp;
+										<a href="#"><i class="icon-trash"></i></a>
+									</td>
+									<td>333,33€</td>
+									<td>333,33€</td>
+								</tr>
+								<tr>
+									<td>AC34423</td>
+									<td>
+										<select class="span1"><option>1</option></select>&nbsp;
+										<a href="#"><i class="icon-trash"></i></a>
+									</td>                                
+									<td>333,33€</td>
+									<td>666,66€</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+					<dl class="dl-horizontal pull-right">
+						<dt>Total HT :</dt>
+						<dd>799,99€</dd>
+						<dt>TVA :</dt>
+						<dd>200€</dd>
+						<dt>Total:</dt>
+						<dd>999,99€</dd>
+					</dl>
+					<div class="clearfix"></div>
+						<div class="wrapper">
+							<div class="parent">
+							<a href="{{ path('produits_homepage') }}" class="bouton children">Continuer mes achats</a>
+							<a href="#" class="boutonMiroir children pull-right">Payer</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

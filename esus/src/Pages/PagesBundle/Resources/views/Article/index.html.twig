@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+	<div class="container">
+		<div class="row">
+			<div id="entete" class="span12">
+				<h2>Liste des articles <i class="icon-list"></i></h2>
+				<div class="liens span10 bords">
+					<div class="wrapper">
+						<div class="parent">
+							<a href="{{ path('admin_articles_new') }}" class="bouton children">Nouvelle entrée</a>
+						</div>
+					</div>
+					<br/><br/>
+					<table class="table table-striped table-hover paddingRight">
+						<thead>
+							<tr>
+								<th>Titre</th>
+								<th>Contenu</th>
+								<th style="text-align: center;">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for entity in entities %}
+							{% set texte = entity.contenu|slice(0, 500) %}
+								<tr>
+									<td class="span2">{{ entity.titre|raw }}</td>
+									<td class="span4">{{ texte|raw }}</td>
+									<td class="span2" style="text-align: center;">
+										<a href="{{ path('admin_articles_show', { 'id': entity.id }) }}" class="lien">voir <i class="icon-eye-open"></i></a>
+										&nbsp;&nbsp;&nbsp;&nbsp;
+										<a href="{{ path('admin_articles_edit', { 'id': entity.id }) }}" class="lien">modidier <i class="icon-edit"></i></a>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				<div class="navigation span3 offset3">
+					{{ knp_pagination_render(entities) }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

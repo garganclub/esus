@@ -1,0 +1,9 @@
+<div class="well">
+	<ul class="nav nav-list">
+		<li class="nav-header">CATÉGORIES</li>
+		<li>
+			<a href="{{ path('produits_homepage') }}">Toutes</a>
+		</li>
+		{% render(controller('ProduitsBundle:Categories:menu')) %}
+	</ul>
+</div>

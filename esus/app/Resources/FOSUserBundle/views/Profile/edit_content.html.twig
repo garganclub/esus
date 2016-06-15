@@ -1,0 +1,64 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="container">
+    <div class="row">
+    	<div id="entete" class="span12">
+        	<h2>Édition du profil <i class="icon-user"></i></h2>
+			<div id="champ" class="span3">
+				<div class="bords">
+					<h4>Modifier mes informations</h4>
+					<em>
+						Si vos coordonnées ont changées<br/>
+						vous pouvez renseigner le formulaire<br/>
+						afin d'actualiser votre situation.
+					</em>
+				</div>
+				<br/>
+				<div>
+					{% include 'UtilisateursBundle:Modules:utilisateurConnecte.html.twig' %}
+				</div>
+			</div>
+			<div id="champs" class="liens span7 bords">
+				<h4>Vos coordonnées</h4>
+				{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+					<div class="row">
+						<div class="span2">
+							<label for="civilite">Civilité</label>
+							<div style="display:inline-block; margin-bottom:20px;">
+								Mr {{ form_widget(form.civilite['0']) }}&nbsp;&nbsp;
+								Mme {{ form_widget(form.civilite['1']) }}
+							</div>
+							<label for="username">Nom d'utilisateur</label>
+							{{ form_widget(form.username) }}
+							<label for="email">E-mail</label>
+							{{ form_widget(form.email) }}
+							<label for="telephone">Téléphone</label>
+							{{ form_widget(form.telephone) }}
+							<label for="current_password">Mot de passe</label>
+							{{ form_widget(form.current_password) }}
+						</div>
+						<div class="span2 offset2">
+							<label for="nom">Nom</label>
+							{{ form_widget(form.nom) }}
+							<label for="prenom">Prénom</label>
+							{{ form_widget(form.prenom) }}
+							<label for="adresse">Adresse</label>
+							{{ form_widget(form.adresse) }}
+							<label for="codePostal">Code postal</label>
+							{{ form_widget(form.codePostal) }}
+							<label for="ville">Ville</label>
+							{{ form_widget(form.ville) }}
+							<label for="pays">Pays</label>
+							{{ form_widget(form.pays) }}
+						</div>
+					</div>
+					<br/>
+					<div class="wrapper">
+						<div class="parent">
+							<input type="submit" class="bouton children" value="{{ 'registration.submit'|trans }}" />
+						</div>
+					</div>
+				{{ form_end(form) }}
+			</div>
+		</div>
+    </div>
+</div>

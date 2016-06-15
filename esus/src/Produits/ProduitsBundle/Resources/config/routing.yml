@@ -1,0 +1,63 @@
+produits_homepage:
+    path:     /produits
+    defaults: { _controller: ProduitsBundle:Produits:index }
+    
+produits_infos:
+    path:     /produit/{id}
+    defaults: { _controller: ProduitsBundle:Produits:produit }
+    
+categorieProduits:
+    path:     /categorie/{categorie}
+    defaults: { _controller: ProduitsBundle:Categories:categorie }
+    
+workshopformation:
+    path:     /workshopformation
+    defaults: { _controller: ProduitsBundle:Categories:workshopformation }
+
+ProduitsBundle_admin_produits:
+    resource: "@ProduitsBundle/Resources/config/routing/produit.yml"
+    prefix:   /admin/produits
+
+ProduitsBundle_admin_categories:
+    resource: "@ProduitsBundle/Resources/config/routing/categorie.yml"
+    prefix:   /admin/categories
+
+ProduitsBundle_admin_tva:
+    resource: "@ProduitsBundle/Resources/config/routing/tva.yml"
+    prefix:   /admin/tva
+    
+ProduitsBundle_admin_ateliers:
+    resource: "@ProduitsBundle/Resources/config/routing/atelier.yml"
+    prefix:   /admin/ateliers
+
+ProduitsBundle_admin_postes:
+    resource: "@ProduitsBundle/Resources/config/routing/poste.yml"
+    prefix:   /admin/postes
+    
+produits_calendrier:
+    path:     /calendrier
+    defaults: { _controller: ProduitsBundle:Calendrier:index }
+    
+produits_panier:
+    path:     /panier
+    defaults: { _controller: ProduitsBundle:Panier:panier }
+    
+panier_ajouter:
+    path:     /panier/ajouter/{id}
+    defaults: { _controller: ProduitsBundle:Panier:ajouter }
+    
+panier_supprimer:
+    path:     /panier/supprimer/{id}
+    defaults: { _controller: ProduitsBundle:Panier:supprimer }
+    
+produits_facture:
+    path:     /facture
+    defaults: { _controller: ProduitsBundle:Panier:facture }
+    
+produits_commande:
+    path:     /commande
+    defaults: { _controller: ProduitsBundle:Commande:index }
+    
+commande_ajouter:
+    path:     /commande/ajouter
+    defaults: { _controller: ProduitsBundle:Commande:ajouter }

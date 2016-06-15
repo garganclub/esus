@@ -1,0 +1,47 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div id="entete" class="span12">
+				<h2>{{ categorie }} : Produits <i class="icon-trophy"></i></h2>
+				<div id="champ" class="span3">
+					{% include 'AccueilBundle:Modules:navigation.html.twig' %}
+					{% render(controller('ProduitsBundle:Panier:menu')) %}
+					{% include 'AccueilBundle:Modules:menu.html.twig' %}
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+						{% include 'UtilisateursBundle:Modules:utilisateurConnecte.html.twig' %}
+					{% else %}
+						{% include 'UtilisateursBundle:Modules:utilisateurDeconnecte.html.twig' %}
+					{% endif %}
+				</div>
+				<div class="span9 calageGaucheDroite">
+					<ul class="thumbnails">
+						{% for produit in produits %}
+							<li class="liens span3 paddingRight {% if panier[produit.id] is not defined %}paddingBottom{% endif %} bords">
+								<br/>
+								<img src="http://labtelier.esy.es/images/{{ produit.image }}" alt="Eat your Shit" width="300" height="300">
+								<h4>{{ produit.titre }}</h4>
+								<p>{{ produit.tarif }} € HT</p>
+								<div class="wrapper" {% if panier[produit.id] is defined %}style="margin-right: -20px"{% endif %}>
+									<div class="parent">
+										<a class="bouton children" href="{{ path('produits_infos', {'id' : produit.id}) }}">Plus d'infos</a>
+										{% if panier[produit.id] is not defined %}
+											{% if produit.categorie.nom != 'Postes' %}
+												<a class="boutonMiroir children pull-right" href="{{ path('panier_ajouter', {'id' : produit.id}) }}">Ajouter au panier</a>
+											{% else %}	
+												<a class="boutonMiroir children pull-right" href="{{ path('produits_calendrier', {'id' : produit.id}) }}">Réserver</a>
+											{% endif %}
+										{% endif %}
+									</div>
+								</div>
+							</li>
+						{% endfor %}
+					</ul>
+					<div class="navigation">
+						{{ knp_pagination_render(produits) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

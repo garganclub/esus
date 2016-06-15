@@ -1,0 +1,17 @@
+::-moz-selection
+{
+    color: rgb(104, 54, 255);
+    background: "#FFFFCC";
+}
+
+::selection
+{
+    color: rgb(104, 54, 255);
+    background: "#FFFFCC";
+}
+#informations, #conteneur, #test, #test2, #test3, #test4
+{
+	display: inline-block;
+	margin: 10px;
+	vertical-align: top;
+}

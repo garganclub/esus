@@ -1,0 +1,17 @@
+parameters:
+#    produits.example.class: Produits\ProduitsBundle\Example
+
+services:
+#    produits.example:
+#        class: %produits.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    redirectionListener:
+        class: Produits\ProduitsBundle\Listener\RedirectionListener
+        arguments: [@service_container, @session]
+        tags:
+          - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+          
+    gestionFacture:
+        class: Produits\ProduitsBundle\Services\GestionFacture
+        arguments: [@service_container, @doctrine.orm.entity_manager]

@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+    <div class="container">
+		<div class="row">
+			<div id="entete" class="span12">
+				<h2>Vue de la catégorie <i class="icon-file"></i></h2>
+				<div class="liens span10 paddingBottom bords">
+					<table>
+						<tr>
+							<td>
+								{{ entity.nom }}
+							</td>
+						</tr>
+					</table>
+					<div class="wrapper">
+						<div class="parent">
+							<a href="{{ path('admin_categories') }}" class="bouton children">Retour liste</a>
+						</div>
+					</div>
+					<br/>
+					<div class="wrapper">
+						<div class="parent">
+							<a href="{{ path('admin_categories_edit', { 'id': entity.id }) }}" class="bouton children">Modifier</a>
+						</div>
+					</div>
+					<br/>
+					<div class="wrapper">
+						<div class="parent">
+							<a href="{{ path('admin_categories_new') }}" class="bouton children">Nouvelle entrée</a>
+						</div>
+					</div>
+					<br/>
+					<br/>
+					{{ form(delete_form) }}
+					<br/>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

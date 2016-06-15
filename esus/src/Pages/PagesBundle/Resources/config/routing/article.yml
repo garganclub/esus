@@ -1,0 +1,30 @@
+admin_articles:
+    path:     /
+    defaults: { _controller: "PagesBundle:Article:index" }
+
+admin_articles_show:
+    path:     /{id}/show
+    defaults: { _controller: "PagesBundle:Article:show" }
+
+admin_articles_new:
+    path:     /new
+    defaults: { _controller: "PagesBundle:Article:new" }
+
+admin_articles_create:
+    path:     /create
+    defaults: { _controller: "PagesBundle:Article:create" }
+    requirements: { _method: post }
+
+admin_articles_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PagesBundle:Article:edit" }
+
+admin_articles_update:
+    path:     /{id}/update
+    defaults: { _controller: "PagesBundle:Article:update" }
+    requirements: { _method: post|put }
+
+admin_articles_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PagesBundle:Article:delete" }
+    requirements: { _method: post|delete }

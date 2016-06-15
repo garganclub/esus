@@ -1,0 +1,76 @@
+<div id="moduleConnexion" class="modal fade nopadding" role="dialog">
+{% if error %}
+	<script>
+		$("#moduleConnexion").modal();
+	</script>
+{% endif %}
+{% for flashMessage in app.session.flashbag.get('warning') %}
+	<script>
+		$("#moduleConnexion").modal();
+	</script>
+    <div class="alert alert-warning">{{ flashMessage }}</div>
+{% endfor %}
+	<div class="modal-dialog">
+        <div class="modal-content">
+          	<div class="modal-header">
+            	<button type="button" id="fermerConnexion" class="close" data-dismiss="modal">&times;</button>
+            	<script>
+            		$("#fermerConnexion").click(function(){
+        				location.href=$('#localisation').val();
+    				});
+    			</script>
+            	<h4 class="modal-title">se connecter</h4>
+          	</div>
+          	<div id="connexionDIV" class="modal-body  col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+          		{% if error %}
+					<div id="connexioninvalideaccesrefuse" style="color:red; text-align:center;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+				{% endif %}
+				<form id="formulaireConnexion" action="{{ path('fos_user_security_check') }}" method="post" class="form-group">
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+					<input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" placeholder="Pseudo"/>
+					<input type="password" id="password" name="_password" required="required" class="form-control" placeholder="Mot de passe"/>
+					<a href="#modulePerdu" id="oubliMdp" class="pull-right lienFormulaire" data-dismiss="modal" data-toggle="modal">mot de passe oublié ?</a>
+					<div>
+						<input type="submit" id="_submit" name="_submit" class="btnNoir col-xs-12" value="connexion"/>
+					</div>
+				</form>
+			</div>
+        	<div class="modal-footer">
+            	<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+              		<div class="row">
+                		<div class="col-xs-6 col-sm-6 nopadding">
+                  			<p class="infosSupp pull-right">pas encore inscrit ?</p>
+                		</div>
+                		<div class="col-sm-6 enculeurDeMouche">
+                  			<a href="#moduleInscription" class="lienFormulaire" data-dismiss="modal" data-toggle="modal">Créer un compte</a>
+                		</div>
+            		</div>
+    			</div>
+    		</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function() {
+		var form = $('#formulaireConnexion');
+		form.submit(function() {
+			$.ajax({
+				type: 'POST',
+				url: "{{ path('fos_user_security_check') }}",
+				data: form.serialize(),
+				error: function(jqXHR, textStatus, errorThrown) {
+					$('#connexion').html('Erreur...');
+				},
+				success: function(htmlResponse) {
+					if(htmlResponse.match(/connexioninvalideaccesrefuse/) != 'connexioninvalideaccesrefuse') {
+						location.href=$('#localisation').val();
+					}
+					else {
+						$('#connexion').html(htmlResponse);
+					}
+				}
+			});			
+			return false;
+		});
+	});
+</script>

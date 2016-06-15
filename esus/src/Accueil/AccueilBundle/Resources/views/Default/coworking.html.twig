@@ -1,0 +1,173 @@
+{% extends "::base.html.twig" %}
+{% block metadesc %}
+  <meta title="Ateliers Esus, présentation de l'espace du fablab lyonnais">
+  <meta desc="Fablab ateliers esus, imprimante 3D, DIY bois, textile, électronique et découpe laser">
+{% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('css/ateliers.css') }}">
+{% endblock %}
+{% block title %}Présentation du co-working par les ateliers Esus{% endblock %}
+{% block body %}
+    <input type="hidden" id="localisation" name="localisation" value="{{ app.request.uri }}"/>
+    <section id="section1">
+      <div class="content">
+        <div>
+          <img src="{{ asset('img/coworking/imgHeadMobile.png') }}" class="img-responsive col-xs-12 nopadding hidden-sm hidden-md hidden-lg hidden-xl">
+          <img src="{{ asset('img/coworking/imgHead.jpg') }}" class="img-responsive col-sm-12 nopadding hidden-xs">
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="content">
+        <section id="section2">
+          <!-- nbre postes -->
+          <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2">
+              <span class="quantitePoste col-xs-12 col-sm-3 nopadding">10</span>
+              <span class="nomPosteCoworking col-xs-12 col-sm-3 col-md-12 col-lg-6">places</span>
+            </div>
+          </div>
+          <div class="row sliderBois">
+            <!-- Carroussel -->
+            <div id="posteBoisCarousel" class="col-xs-12 col-sm-4 col-sm-pull-2 pull-right">
+              <div id="carouselcoworking01" class="carousel slide col-xs-12" data-ride="carousel">
+                <div class="row">
+                  <div class="carousel-inner nopadding" role="listbox">
+                    <div class="item active">
+                      <img src="{{ asset('img/coworking/imgSlide01.jpg') }}" alt="espace coworking, première slide" class="first-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/coworking/imgSlide01.jpg') }}" alt="espace coworking, deuxième slide" class="second-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/coworking/imgSlide01.jpg') }}" alt="espace coworking, troisième slide" class="third-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/coworking/imgSlide01.jpg') }}" alt="espace coworking, quatrième slide" class="fourth-slide img-responsive nopadding col-xs-12">
+                    </div>
+                  </div>
+                  <!-- indicators -->
+                  <div class="row">
+                    <ol class="carousel-indicators carouselBois-indicators">
+                      <li data-target="#carouselcoworking01" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselcoworking01" data-slide-to="1"></li>
+                      <li data-target="#carouselcoworking01" data-slide-to="2"></li>
+                      <li data-target="#carouselcoworking01" data-slide-to="3"></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- description -->
+            <div class="col-xs-12 col-sm-4 col-sm-offset-2 descriptionPoste pull-left">
+              <!-- paragraphe -->
+              <div class="row hidden-xs">
+                <div class="col-sm-9 col-sm-offset-3">
+                  <p class="presentationAtelier">Aux ateliers Esus nous mettons à disposition un espace de co-working de 10 places accessibles à tous. Dans cet espace vous pourrez travailler librement tous vos projets</p>
+                </div>
+              </div>
+              <!-- liste outils -->
+              <div class="row">
+                <div class="col-xs-12 col-sm-9 col-sm-offset-3 listeOutil">
+                  <div class="col-xs-12 col-sm-6 nopadding">
+                    <p class="outil"><span class="hidden-xs">-</span> Accès internet</p>
+                    <p class="outil"><span class="hidden-xs">-</span> Bibliothèque</p>
+                  </div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-1 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <hr class="divider">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section3">
+          <!-- nbre postes -->
+          <div class="row">
+            <div class="col-xs-10 col-xs-pull-1 col-sm-4 col-sm-pull-2 pull-right">
+              <span class="quantitePosteDroite col-xs-12 col-sm-3 nopadding pull-right">2</span>
+              <span class="nomPosteDroite col-xs-12 pull-right">imprimantes & aussi</span>
+            </div>
+          </div>
+          <div class="row sliderElec">
+            <!-- Carroussel -->
+            <div id="posteElecCarousel" class="col-xs-12 col-sm-4 col-sm-offset-2 pull-left">
+              <div id="carouselcoworking02" class="carousel slide col-xs-12" data-ride="carousel">
+                <div class="row">
+                  <div class="carousel-inner nopadding" role="listbox">
+                    <div class="item active">
+                      <img src="{{ asset('img/coworking/imgSlide02.jpg') }}" alt="slider imprimante, première slide" class="first-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/coworking/imgSlide02.jpg') }}" alt="slider imprimante, deuxième slide" class="second-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/coworking/imgSlide02.jpg') }}" alt="slider imprimante, troisième slide" class="third-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/coworking/imgSlide02.jpg') }}" alt="slider imprimante, quatrième slide" class="fourth-slide img-responsive nopadding col-xs-12">
+                    </div>
+                  </div>
+                  <!-- indicators -->
+                  <div class="row">
+                    <ol class="carousel-indicators carouselElec-indicators indicatorsCoworking02">
+                      <li data-target="#carouselcoworking02" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselcoworking02" data-slide-to="1"></li>
+                      <li data-target="#carouselcoworking02" data-slide-to="2"></li>
+                      <li data-target="#carouselcoworking02" data-slide-to="3"></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- description -->
+            <div class="col-xs-12 col-sm-4 col-sm-pull-2 descriptionPoste pull-right">
+              <!-- liste outils -->
+              <div class="row">
+                <div class="col-xs-12 col-sm-9 col-sm-offset-3 listeOutil">
+                  <div class="col-xs-12 col-sm-6 nopadding">
+                    <p class="outil"><span class="hidden-xs">-</span> Café</p>
+                    <p class="outil"><span class="hidden-xs">-</span> Thé</p>
+                    <p class="outil"><span class="hidden-xs">-</span> Confort</p>
+                    <p class="outil"><span class="hidden-xs">-</span> Bonne humeur</p>
+                  </div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-1 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <hr class="divider">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section4">
+          <!-- nbre postes -->
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 col-sm-offset-2 pull-left">
+              <span class="titreHoraires col-xs-12 col-sm-9 col-md-12 col-lg-9">horaires <br />& <br class="hidden-sm hidden-md hidden-lg hidden-xl" />tarifs</span>
+            </div>
+            <div id="horaires-tarifs" class="col-xs-12 col-sm-4 col-sm-pull-2 pull-right">
+              <div>
+                <p class="horaires">horaires d'accès</p>
+                <p class="infoHoraires">9h/20h</p>
+              </div>
+              <div class="col-sm-12 hidden-xs nopadding">
+                <hr class="col-sm-5 horairesDivider">
+              </div>
+
+              <div>
+                <p class="tarifs">tarifs</p>
+                <p class="infoHoraires">3€ HT / heure</p>
+                <p class="infoHoraires">plafonnés à 299€HT / mois</p>
+              </div>
+            </div>
+            <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
+              <a href="" class="col-xs-4 col-xs-offset-4 btn btnReservation">réserver</a>
+            </div>
+          </div>
+      </div>
+      </section>
+    </div>
+{% endblock %}

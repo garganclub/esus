@@ -1,0 +1,106 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<style>
+	#formulaireInscription li {
+		color: red;
+	}
+	#fos_user_registration_form_plainPassword_first, #fos_user_registration_form_plainPassword_second {
+		margin-bottom: -5px;
+	}
+</style>
+{% if form.username.vars.errors.count() > 0 or form.email.vars.errors.count() > 0 or form.plainPassword.first.vars.errors.count() > 0 %}
+  	<script>
+		$("#moduleInscription").modal();
+	</script>
+{% endif %}
+<div id="moduleInscription" class="modal fade nopadding" role="dialog">
+    <div class="modal-dialog">
+    	<div class="modal-content">
+        	<div class="modal-header">
+            	<button type="button" id="fermerInscription" class="close pull-left" data-dismiss="modal">&times;</button>
+            	<script>
+            		$("#fermerInscription").click(function(){
+        				location.href=$('#localisation').val();
+    				});
+    			</script>
+            	<h4 class="modal-title">s'inscrire</h4>
+          	</div>
+          	<div class="modal-body col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+          		{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-group', 'id': 'formulaireInscription'}}) }}
+              		<div class="row">
+                		<div class="col-xs-11 col-xs-offset-1 choixSexe">
+                  			<div class="col-xs-6">
+                    			<div class="row">
+                    				{{ form_widget(form.civilite['0'], {'attr': {'class': 'col-xs-2'}}) }}
+                      				<label>Mr</label>
+                    			</div>
+                  			</div>
+                  			<div class="col-xs-6">
+                    			<div class="row">
+                    				{{ form_widget(form.civilite['1'], {'attr': {'class': 'col-xs-2'}}) }}
+                      				<label>Mme</label>
+                    			</div>
+                  			</div>
+                		</div>
+              		</div>
+              		{{ form_errors(form.username) }}
+              		{{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder' : 'Pseudo'}}) }}
+              		{{ form_widget(form.plainPassword) }}
+              		<!-- <input type="password" class="form-control" id="mdpUserInsc" placeholder="Mot de passe">
+              		<input type="password" class="form-control" id="mdpUserInscVerif" placeholder="Vérification mot de passe"> -->
+              		{{ form_errors(form.email) }}
+              		{{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder' : 'Email'}}) }}
+              		{{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder' : 'Téléphone'}}) }}
+					{{ form_widget(form.valide) }}
+					<input type="hidden" id="position" name="position" value=""/>
+					{{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder' : 'Nom'}}) }}
+					{{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder' : 'Prénom'}}) }}
+					{{ form_widget(form.adresse, {'attr': {'class': 'form-control', 'placeholder' : 'Adresse'}}) }}
+					{{ form_widget(form.ville, {'attr': {'class': 'form-control', 'placeholder' : 'Ville'}}) }}
+              		<div class="row">
+                		<div class="col-xs-6 col-sm-7">
+                			{{ form_widget(form.codePostal, {'attr': {'class': 'form-control pull-right', 'placeholder' : 'Code postal'}}) }}
+                		</div>
+                		<div class="col-xs-6 col-sm-5">
+                			{{ form_widget(form.pays, {'attr': {'class': 'form-control pull-left', 'placeholder' : 'Pays'}}) }}
+                		</div>
+              		</div>
+              		<div>
+              			<input type="submit" class="btnNoir col-xs-12" value="s'inscrire"/>
+              		</div>
+        		{{ form_end(form) }}
+        	</div>
+        	<div class="modal-footer">
+        		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+              		<div class="row">
+                		<div class="col-xs-6 col-sm-6 nopadding">
+                  			<p class="infosSupp pull-right">Déjà inscrit ?</p>
+                		</div>
+                		<div class="col-sm-6 enculeurDeMouche">
+                  			<a href="#moduleConnexion" class="lienFormulaire pull-left" data-dismiss="modal" data-toggle="modal">Connectez-vous</a>
+                		</div>
+                	</div>
+              	</div>
+            </div>
+    	</div>
+    </div>
+</div>
+<script>
+	$(document).ready(function() {
+		var form = $('#formulaireInscription');
+		form.submit(function() {
+			$('#position').attr('value', $('#localisation').val());
+			$.ajax({
+				type: 'POST',
+				url: "{{ path('fos_user_registration_register') }}",
+				data: form.serialize(),
+				error: function(jqXHR, textStatus, errorThrown) {
+					$('#inscription').html('Erreur...');
+				},
+				success: function(htmlResponse) {
+					$('#inscription').html(htmlResponse);
+				}
+			});		
+			return false;
+		});
+	});
+</script>

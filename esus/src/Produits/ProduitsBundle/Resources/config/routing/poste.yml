@@ -1,0 +1,30 @@
+admin_postes:
+    path:     /
+    defaults: { _controller: "ProduitsBundle:Poste:index" }
+
+admin_postes_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProduitsBundle:Poste:show" }
+
+admin_postes_new:
+    path:     /new
+    defaults: { _controller: "ProduitsBundle:Poste:new" }
+
+admin_postes_create:
+    path:     /create
+    defaults: { _controller: "ProduitsBundle:Poste:create" }
+    requirements: { _method: post }
+
+admin_postes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProduitsBundle:Poste:edit" }
+
+admin_postes_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProduitsBundle:Poste:update" }
+    requirements: { _method: post|put }
+
+admin_postes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProduitsBundle:Poste:delete" }
+    requirements: { _method: post|delete }

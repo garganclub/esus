@@ -1,0 +1,511 @@
+#section1 {
+  padding-bottom: 40%;
+}
+#section2 {
+  margin-top: 100px;
+}
+#section3 {
+  background-color: #ececec;
+  height: 400px;
+  margin-top: 100px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: -15px;
+  margin-right: -15px
+}
+#section4 {
+  height: 400px;
+  margin-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+#section5 {
+  background-color: #ececec;
+  height: 400px;
+  margin-top: 200px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: -15px;
+  margin-right: -15px
+}
+#section3 > .row > div {
+  margin-bottom: 30px;
+}
+#section4 > .row > div {
+  margin-bottom: 30px;
+}
+#section5 > .row > div {
+  margin-bottom: 30px;
+}
+#section5 > .row > div > .nomPosteDroite {
+  text-align: center;
+  margin-top: -80px;
+  margin-right: -20px;
+}
+#section6 > .row > div > .nomPoste {
+  margin-bottom: 30px;
+}
+p {
+  font-family: "helveticaNeue", "Helvetica", arial, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+.quantitePoste {
+  font-family: "helveticaNeueCdnBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 130px;
+}
+.quantitePosteDroite {
+  font-family: "helveticaNeueCdnBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 130px;
+  text-align: right;
+}
+.nomPoste {
+  font-family: "helveticaNeueCdnBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  margin-left: -50px;
+  margin-top: 87px;
+  line-height: 1;
+}
+.nomPosteCoworking {
+  font-family: "helveticaNeueCdnBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  margin-left: 0;
+  margin-top: 87px;
+  line-height: 1;
+}
+#horaires-tarifs {
+  margin-top: 70px;
+}
+.horairesDivider {
+  border-top: 1px solid #000;
+}
+.titreHoraires {
+  font-family: "helveticaNeueCdnBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  margin-left: 100px;
+  margin-top: 65px;
+  line-height: 1;
+}
+.horaires {
+  text-transform: uppercase;
+  font-family: "helveticaNeueBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.tarifs {
+  text-transform: uppercase;
+  font-family: "helveticaNeueBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+#section4 > .row > #horaires-tarifs > div > .infoHoraires {
+  text-align: left;
+  font-family: "helveticaNeue", "Helvetica", arial, sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+.nomPosteDroite {
+  font-family: "helveticaNeueCdnBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  margin-right: 0;
+  margin-top: -50px;
+  text-align: right;
+  padding-right: 0;
+}
+.presentationAtelier {
+  margin-bottom: 20px;
+}
+.outil {
+  line-height: 1;
+}
+.carousel-inner {
+  width: 100%;
+}
+.sliderBois {
+  margin-top: -50px;
+}
+.sliderElec {
+  margin-top: -90px;
+}
+.carouselBois-indicators {
+  left: 15px;
+  right: auto;
+  bottom: auto;
+  width: auto;
+}
+.carouselElec-indicators {
+  right: 0;
+  left: auto;
+  bottom: auto;
+  width: auto;
+}
+.presentationAtelier {
+  word-break: break-all;
+}
+@media screen and (max-width: 767px) {
+  #section3, #section5 {
+    background-color: #FFF;
+  }
+  #section2 {
+    margin-top: auto;
+  }
+  #posteBoisCarousel {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #posteElecCarousel {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .divider {
+    margin-bottom: 0;
+  }
+  #section3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  #section3 > .row {
+    margin-top: -30px;
+  }
+  #section5 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  #section5 > .row {
+    margin-top: -30px;
+  }
+  #section3 > .row > div {
+    margin-bottom: 0;
+  }
+  #section4 > .row > div {
+    margin-bottom: 0;
+  }
+  #section5 > .row > div {
+    margin-bottom: 0;
+  }
+  #section6 > .row > div > .nomPoste {
+    margin-bottom: 15px;
+  }
+  /*gestion coworking*/
+  #horaires-tarifs {
+    margin-top: 0;
+  }
+  #section4 > .row > #horaires-tarifs > div > .infoHoraires {
+    text-align: center;
+    font-family: "helveticaNeue", "Helvetica", arial, sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+  .horaires {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "helveticaNeueBold", "HelveticaBold", arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .tarifs {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "helveticaNeueBold", "HelveticaBold", arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  /*Fin coworking*/
+  .carouselBois-indicators {
+    left: auto;
+    right: 10px;
+    bottom: auto;
+    width: auto;
+  }
+  .carouselElec-indicators {
+    left: auto;
+    right: 10px;
+    bottom: auto;
+    width: auto;
+  }
+  /*indicators pour la page coworking*/
+  .indicatorsCoworking02 {
+    margin-right: 15px;
+  }
+  .descriptionPoste {
+    text-align: center;
+  }
+  .quantitePoste {
+    margin-top: -10px !important;
+    font-size: 80px;
+    text-align: center;
+  }
+  .quantitePosteDroite {
+    margin-top: -10px !important;
+    font-size: 80px;
+    text-align: center;
+  }
+  .nomPoste {
+    font-size: 30px;
+    margin-left: 0;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .nomPosteCoworking {
+    font-size: 30px;
+    margin-left: 0;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .titreHoraires {
+    font-size: 35px;
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  #section5 > .row > div > .nomPosteDroite {
+    font-size: 30px;
+    margin-left: 0;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-right: 15px;
+    margin-right: 0;
+  }
+  .nomPosteDroite {
+    font-size: 30px;
+    margin-left: 0;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-right: 15px;
+  }
+  .listeOutil {
+    margin-top: 75px;
+  }
+  #section6 > div > div > div > div > div > .outil {
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .outil {
+    font-size: 16px;
+    line-height: .75;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .btnReservation {
+    text-transform: uppercase;
+    padding-left: 8px;
+  }
+  .divider {
+    border-top: 1px solid #000;
+  }
+}
+
+/* Gestion Version tablette portrait*/
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  #section2 {
+    margin-top: 50px;
+  }
+  .carouselBois-indicators {
+    left: 0;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    padding-left: 0;
+  }
+  .carouselElec-indicators {
+    left: auto;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    padding-right: 0;
+  }
+  .nomPoste {
+    margin-left: 0;
+    margin-top: 35px;
+    line-height: 1;
+  }
+  .nomPosteCoworking {
+    margin-left: 60px;
+    margin-top: 95px;
+    line-height: 1;
+  }
+  #horaires-tarifs {
+    margin-top: 15px;
+  }
+  .titreHoraires {
+    margin-left: 0;
+    margin-top: 0px;
+    line-height: 1;
+  }
+  .nomPosteDroite {
+    margin-top: -45px;
+    font-size: 25px;
+  }
+}
+
+/* Gestion Version tablette*/
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  #section2 {
+    margin-top: 50px;
+  }
+  .nomPoste {
+    margin-left: 50px;
+    margin-top: -95px;
+  }
+  .nomPosteCoworking {
+    margin-left: 115px;
+    margin-top: -85px;
+  }
+  #horaires-tarifs {
+    margin-top: 5px;
+  }
+  .titreHoraires {
+    margin-left: 50px;
+    margin-top: -5px;
+  }
+  #section2:first-of-type .nomPoste {
+    margin-top: -85px;
+  }
+  .nomPosteDroite {
+    font-size: 35px;
+  }
+  #section5 > .row > div > .nomPosteDroite {
+    margin-right: 10px;
+  }
+  #section5 {
+    height: 450px;
+    margin-top: 70px;
+  }
+}
+
+/* Gestion Version desktop */
+
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  #section3 {
+    height: 450px;
+  }
+  #section5 {
+    height: 450px;
+    margin-top: 70px;
+  }
+  #section5 > .row > div > .nomPosteDroite {
+    margin-right: 0;
+  }
+  .quantitePosteDroite {
+    font-size: 130px;
+  }
+  .nomPosteDroite {
+    font-size: 45px;
+  }
+  .nomPosteCoworking {
+    font-family: "helveticaNeueCdnBold", "HelveticaBold", arial, sans-serif;
+    font-weight: bold;
+    font-size: 55px;
+    margin-left: 15px;
+    margin-top: 87px;
+    line-height: 1;
+  }
+  .sliderElec {
+    margin-top: -110px;
+  }
+}
+
+/* Gestion Version large desktop */
+
+@media screen and (min-width: 1600px) {
+  #section3 {
+    height: 500px;
+  }
+  #section5 {
+    height: 500px;
+  }
+  .quantitePoste {
+    text-align: center;
+  }
+  .nomPoste {
+    margin-left: -40px;
+    font-size: 55px;
+    margin-top: 75px;
+  }
+  .nomPosteCoworking {
+    margin-left: 0;
+    font-size: 65px;
+    margin-top: 75px;
+  }
+  #horaires-tarifs {
+    margin-top: 10px;
+  }
+  .titreHoraires {
+    margin-left: 100px;
+    font-size: 55px;
+    margin-top: -5px;
+  }
+  .nomPosteDroite {
+    font-size: 55px;
+  }
+  .sliderElec {
+    margin-top: -110px;
+  }
+}
+
+/*version spéciale alignement pour écran 1920px min*/
+
+@media screen and (min-width: 1920px) {
+  #section3 {
+    height: 550px;
+  }
+  #section5 {
+    height: 550px;
+  }
+  .quantitePoste {
+    text-align: center;
+    font-size: 150px;
+  }
+  .nomPoste {
+    font-size: 65px;
+    margin-top: 95px;
+  }
+  .nomPosteCoworking {
+    font-size: 65px;
+    margin-top: 95px;
+  }
+  #horaires-tarifs {
+    margin-top: 70px;
+  }
+  .titreHoraires {
+    font-size: 65px;
+    margin-left: 150px;
+    margin-top: 50px;
+  }
+  .nomPosteDroite {
+    font-size: 70px;
+  }
+  .sliderBois {
+    margin-top: -70px;
+  }
+  .sliderElec {
+    margin-top: -130px;
+  }
+}

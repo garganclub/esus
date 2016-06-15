@@ -1,0 +1,83 @@
+{% extends "::base.html.twig" %}
+{% set totalHT = 0 %}
+{% set tva = 0 %}
+{% set totalTTC = 0 %}
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div id="entete" class="span12">
+				<h2>Facture <i class="icon-credit-card"></i></h2>
+				<div class="liens span8 paddingRight bords">
+					<br/>
+					Mr {{ utilisateur.nom }} {{ utilisateur.prenom }}<br/>
+					Adresse : <br/>{{ utilisateur.adresse }}<br/>
+					{{ utilisateur.codePostal }} {{ utilisateur.ville }}<br/>
+					{{ utilisateur.pays }}<br/>
+					Date : {{ dateCommande|date('d/m/Y') }}
+					<br/><br/>
+					<table>
+						<td style="width:250px"><strong>titre</h2></strong>
+						<td><strong>catégorie&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+						<td><strong>prix unitaire&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+						<td><strong>quantité&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+						<td><strong>prix HT&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+						<td><strong>prix TTC</strong></td>
+						{% if produits != false %}
+							{% for produit in produits %}
+								<tr>
+									<td>{{ produit.titre }}</td>
+									<td>{{ produit.categorie.nom }}</td>
+									<td>{{ produit.tarif|round(2) }} €</td>
+									<td>{{ panier[produit.id] }}</td>
+									<td>{{ produit.tarif * panier[produit.id]|round(2) }} €</td>
+									<td>{{ (produit.tarif * panier[produit.id]) + ((produit.tarif * panier[produit.id]) * produit.tva.valeur / 100)|round(2) }} €</td>
+								</tr>
+								{% set totalHT = totalHT + (produit.tarif * panier[produit.id]) %}
+								{% set tva = tva + ((produit.tarif * panier[produit.id]) * produit.tva.valeur / 100) %}
+								{% set totalTTC = totalTTC + (produit.tarif * panier[produit.id]) + ((produit.tarif * panier[produit.id]) * produit.tva.valeur / 100) %}		
+							{% endfor %}
+						{% endif %}
+						{% if reservations|length > 0 %}
+							<tr>
+								<td>Réservation Atelier Bois Poste n°1</td>
+								<td>Réservation</td>
+								<td>45 €</td>
+								<td>{{ reservations|length }}</td>
+								<td>{{ reservations|length * 45 }} €</td>
+								<td>{{ (reservations|length * 45) + ((reservations|length * 45) * 20) / 100 }} €</td>
+							</tr>
+							{% set totalHT = totalHT + reservations|length * 45 %}
+							{% set tva = tva + ((reservations|length * 45) * 20) / 100 %}
+							{% set totalTTC = totalTTC + (reservations|length * 45) + ((reservations|length * 45) * 20) / 100 %}
+						{% endif %}
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<br/><br/><br/><br/>
+								{% if produits|length != 0 or reservations|length != 0 %}
+									<dl class="dl-horizontal" style="margin-left: -100px">
+										<dt>Total HT :</dt>
+										<dd>{{ totalHT|round(2) }} €</dd>
+										<dt>TVA :</dt>
+										<dd>{{ tva|round(2) }} €</dd>
+										<dt>Total:</dt>
+										<dd>{{ totalTTC|round(2) }} €</dd>
+									</dl>
+								{% endif %}
+							</td>
+						</tr>
+					</table>
+					<div class="wrapper" style="margin-left: -20px">
+						<div class="parent">
+							<a href="#" class="boutonMiroir children pull-right">PAYER</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

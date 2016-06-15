@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {% block metadesc %}
+  	<meta title="Ateliers Esus, accueil du fablab lyonnais">
+  	<meta desc="Fablab ateliers esus, imprimante 3D, DIY bois, textile, électronique et découpe laser">
+  {% endblock %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% block stylesheets %}
+  	<!-- Bootstrap -->
+    <!-- <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen"> -->
+    <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
+    {# {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %} #}
+    <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}">
+  	<link rel="stylesheet" href="{{ asset('css/BootstrapXL.css') }}">
+  	<!-- plugin pour le menu mobile -->
+  	<link rel="stylesheet" href="{{ asset('node_modules/jasny-bootstrap/css/jasny-bootstrap.css') }}">
+  	<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+  	<link rel="stylesheet" href="{{ asset('css/formulaires.css') }}">
+  {% endblock %}
+  <title>{% block title %}Les ateliers Esus, fablab & atelier de création lyonnais{% endblock %}</title>
+  <style>
+	.modal {
+		height: 800px;
+		overflow: scroll;
+	}
+	#moduleInscription {
+		height: 800px;
+		overflow: scroll;
+	}
+  </style>
+</head>
+
+<body>	
+  <div class="container">
+    <!-- gestion de la navbar et du menu mobile -->
+    <nav class="navbar navbar-fixed-top nopadding">
+
+      <!-- menu mobile (toggle) -->
+      <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
+        <button id="menu-toggle" type="button" class="btn hidden-md-up navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas=".wrapper">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div id="navMenuMobile" class="navmenu navmenu-fixed-left offcanvas-xs hidden-sm hidden-md hidden-lg hidden-xl">
+        <div class="connexionMobile">
+          <ul class="nav navmenu-nav">
+            <li class="col-xs-6" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+              {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				<a href="{{ path('fos_user_profile_show') }}" class="btn">mon compte</a>
+			  {% else %}
+				<a href="" class="btn" data-toggle="modal" data-target="#moduleConnexion">se connecter</a>
+			  {% endif %}
+            </li>
+            <li class="col-xs-6">
+              {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				<a href="{{ path('fos_user_security_logout') }}" class="btn">se déconnecter</a>
+			  {% else %}
+				<a href="" class="btn" data-toggle="modal" data-target="#moduleInscription">s'inscrire</a>
+			  {% endif %}
+            </li>
+            <li class="col-xs-6 col-xs-push-3">
+              <a href="{{ path('produits_panier') }}" class="btn">panier</a>
+            </li>
+          </ul>
+          <ul class="nav navmenu-nav">
+            <li class="nav-item">
+              <a href="{{ path('accueil_homepage') }}">ésus</a>
+            </li>
+            <li class="dividerMobile">
+              <hr />
+            </li>
+            <li class="nav-item">
+              <a href="{{ path('accueil_ateliers') }}">les ateliers</a>
+            </li>
+            <li class="dividerMobile">
+              <hr />
+            </li>
+            <li class="nav-item">
+              <a href="{{ path('workshopformation') }}">workshops & formations</a>
+            </li>
+            <li class="dividerMobile">
+              <hr />
+            </li>
+            <li class="nav-item">
+              <a href="{{ path('accueil_coworking') }}">espace de<br>co-working</a>
+            </li>
+            <li class="dividerMobile">
+              <hr />
+            </li>
+            <li class="nav-item">
+              <a href="{{ path('accueil_reservation') }}">réserver</a>
+            </li>
+            <li class="dividerMobile">
+              <hr />
+            </li>
+            <li class="nav-item">
+              <a href="{{ path('pages_articles') }}">news</a>
+            </li>
+            <li class="dividerMobile">
+              <hr />
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Menu Desktop & tablets -->
+      <!-- Controle de la navigation en 2 parties: connexion et nav générale -->
+      <div id="navbar" class="navbar-collapse collapse navbarfull">
+        <!-- partie connexion/panier -->
+        <div class="navbar-brand col-sm-push-1 col-sm-2">
+          <a href="{{ path('accueil_homepage') }}"><img src="{{ asset('img/logo_web.png') }}" alt="logo esus ateliers"></a>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-push-6 col-lg-push-7 col-xl-push-7 memberNav">
+              <ul class="nav navbar-nav col-sm-7 col-lg-5 col-xl-4" id="connexion-nav">
+                <li class="nav-item">
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<a href="{{ path('fos_user_profile_show') }}" class="nav-link">mon compte</a>
+			  	  {% else %}
+					<a href="" class="nav-link" data-toggle="modal" data-target="#moduleConnexion">se connecter</a>
+			      {% endif %}
+                </li>
+                <li class="nav-item">
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<a href="{{ path('fos_user_security_logout') }}" class="nav-link"">se déconnecter</a>
+			  	  {% else %}
+					<a href="" class="nav-link" data-toggle="modal" data-target="#moduleInscription">s'inscrire</a>
+			  	  {% endif %}
+                </li>
+                <li class="nav-item">
+                  <a href="{{ path('produits_panier') }}" class="nav-link">panier</a>
+                </li>
+                <li class="divider">
+                  <hr />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- navigation du site -->
+          <div class="row">
+            <ul class="nav navbar-nav col-sm-12 col-sm-push-5" id="main-nav">
+              <li class="nav-item col-sm-1">
+                <a href="{{ path('accueil_homepage') }}" class="nav-link">ésus</a>
+              </li>
+              <li class="nav-item col-sm-1">
+                <a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link">les ateliers</a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ path('accueil_ateliers') }}" class="UpperCaseLink">présentation</a></li>
+                  <li><a href="{{ path('accueil_ateliers') }}#bois" class="UpperCaseLink">le bois</a></li>
+                  <li><a href="{{ path('accueil_ateliers') }}#electronique" class="UpperCaseLink">électronique</a></li>
+                  <li><a href="{{ path('accueil_ateliers') }}#impression" class="UpperCaseLink">impression 3D</a></li>
+                  <li><a href="{{ path('accueil_ateliers') }}#textile" class="UpperCaseLink">textile</a></li>
+                  <li><a href="{{ path('accueil_ateliers') }}#laser" class="UpperCaseLink">découpe laser</a></li>
+                </ul>
+              </li>
+              <li class="nav-item col-sm-1">
+                <a href="{{ path('workshopformation') }}" class="nav-link">formations &<br />workshops</a>
+              </li>
+              <li class="nav-item col-sm-1">
+                <a href="{{ path('accueil_coworking') }}" class="nav-link">espace de <br />co-working</a>
+              </li>
+              <li class="nav-item col-sm-1">
+                <a href="{{ path('accueil_reservation') }}" class="nav-link">réserver</a>
+              </li>
+              <li class="nav-item col-sm-2">
+                <a href="{{ path('pages_articles') }}" class="nav-link">news</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- MODALS // GESTION CONNEXION / INSCRIPTION -->
+    <div id="connexion">
+    </div>
+    <div id="inscription">
+    </div>
+    <div id="perdu">
+    </div>
+    {% if app.session.get('retour').message is defined %}
+    	<div id="confirmation">
+    		<div id="moduleConfirmation" class="modal fade nopadding" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" id="fermerConfirmation" class="close pull-left" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">confirmation</h4>
+    						{{ app.session.get('retour').message }}
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    {% endif %}
+  </div>
+  <div class="wrapper">     
+  {% block body %}{% endblock %}
+  {% block footer %}
+  	<footer class="container">
+      <div class="col-xs-12 nopadding">
+        <div class="footerLeft col-xs-12 col-md-2 col-md-push-2">
+          <div class="row">
+            <span class="col-sm-12 hidden-xs hidden-sm">nous suivre</span>
+            <br />
+            <div class="col-xs-12 col-sm-8 col-sm-push-2 col-md-12 col-md-push-0 socialMedia">
+              <a href="" class="col-xs-3 col-sm-3 col-md-2"><img src="{{ asset('img/facebook.png') }}" alt="" class="img-responsive img-thumbnail-inverse"></a>
+              <a href="" class="col-xs-3 col-sm-3 col-md-2"><img src="{{ asset('img/insta.png') }}" alt="" class="img-responsive img-thumbnail-inverse"></a>
+              <a href="" class="col-xs-3 col-sm-3 col-md-2"><img src="{{ asset('img/youtube.png') }}" alt="" class="img-responsive img-thumbnail-inverse"></a>
+              <a href="" class="col-xs-3 col-sm-3 col-md-2"><img src="{{ asset('img/twitter.png') }}" alt="" class="img-responsive img-thumbnail-inverse"></a>
+            </div>
+          </div>
+          <div class="row hidden-md hidden-lg hidden-xl">
+            <div class="newsletterMobile col-xs-12">
+              <div id="newsletter" class="col-xs-12 nopadding">
+                <form class="navbar-form col-xs-8 col-xs-push-2 col-sm-6 col-sm-push-4">
+                  <div class="form-group col-xs-12 nopadding">
+                    <span>newsletter</span>
+                    <br />
+                    <input type="text" class="form-control">
+                  </div>
+                  <button type="submit" name="newsletterBtn" class="btn btnFondNoir col-xs-6 col-xs-push-3">ok</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="liensFooter row">
+            <a href="" id="partenaires" class="col-xs-12">Partenaires</a>
+            <a href="" id="condGenerales" class="col-xs-12">Conditions générales de vente</a>
+          </div>
+        </div>
+
+        <div class="footerMiddle hidden-xs hidden-sm col-sm-4 col-sm-push-2">
+          <div id="esusFooterAddress" class="row">
+            <div id="footerAddressLeft" class="col-md-4 footerAddressLeft">
+              <div class="text-right">
+                <p>ateliers
+                  <br />ésus</p>
+              </div>
+            </div>
+            <div class="footerAddressRight col-md-8">
+              <div class="text-left">
+                <div class="addressUp">
+                  <p>13
+                    <br />Rue Bouteille
+                    <br />69001 LYON</p>
+                </div>
+                <div id="footerContact" class="addressDown">
+                  <p>04 25 27 67 95
+                    <br />contact@ateliersesus.com
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footerRight hidden-xs hidden-sm col-xs-8 col-xs-push-2 col-md-2 col-md-push-2">
+          <div id="newsletter">
+            <form class="navbar-form navbar-right">
+              <div class="form-group">
+                <span>newsletter</span>
+                <br />
+                <input type="text" class="form-control">
+              </div>
+              <br />
+              <button type="submit" name="newsletterBtn" class="btn btnFondNoir">ok</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  {% endblock %}
+  {% block javascripts %}
+  	<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
+    <!-- <script src="{{ asset('js/jquery.js') }}"></script> -->
+    <!-- Include all JavaScripts, compiled by Assetic -->
+    <!-- <script src="{{ asset('js/bootstrap.js') }}"></script> -->
+  	<!-- scripts essais  -->
+	<script src="{{ asset('node_modules/jquery/dist/jquery.js') }}" charset="utf-8"></script>
+	<script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.js') }}" charset="utf-8"></script>
+	<!-- plugin pour le menu mobile -->
+	<script src="{{ asset('node_modules/jasny-bootstrap/js/jasny-bootstrap.js') }}" charset="utf-8"></script>
+	<!-- plugin pour le hover du menu dropdown -->
+	<script src="{{ asset('js/jquery.bootstrap-dropdown-hover.js') }}"></script>
+	<!-- gestion du changement au scroll de la navigation -->
+	<script src="{{ asset('node_modules/classie/classie.js') }}"></script>
+	<script src="{{ asset('js/main.js') }}"></script>
+  {% endblock %}
+  <script>
+	$(document).ready(function() {
+		{% if app.session.get('retour').message is defined %}
+			$("#moduleConfirmation").modal();
+			$("#fermerConfirmation").click(function(){
+				location.href = "{{ path('membre_finConfirmation') }}";
+			});
+		{% endif %}
+		$.ajax({
+			type: "POST",
+			url: "{{ path('membre_connexion') }}",
+			success: function(returnData){
+				$('#connexion').html(returnData['html']);
+			}
+		});
+		$.ajax({
+			type: "POST",
+			url: "{{ path('membre_inscription') }}",
+			success: function(returnData){
+				$('#inscription').html(returnData['html']);
+			}
+		});
+		$.ajax({
+			type: "POST",
+			url: "{{ path('membre_perdu') }}",
+			success: function(returnData){
+				$('#perdu').html(returnData['html']);
+			}
+		});
+	});
+  </script>
+</body>
+</html>

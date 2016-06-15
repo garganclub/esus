@@ -1,0 +1,29 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block fos_user_content %}
+<script>
+	$("#moduleInscription").modal();
+</script>
+<div id="moduleInscription" class="modal fade nopadding" role="dialog">
+	<div class="modal-dialog">
+    	<!-- Modal content-->
+    	<div class="modal-content">
+        	<div class="modal-header">
+            	<button type="button" id="fermerEncours" class="close pull-left" data-dismiss="modal">&times;</button>
+            	<script>
+            		$("#fermerEncours").click(function(){
+        				location.href=$('#localisation').val();
+    				});
+    			</script>
+				<div id="envoidemail">
+					{% for flashMessage in app.session.flashbag.get('success') %}
+						<div class="alert alert-success">{{ flashMessage }}</div>
+					{% endfor %}
+					<h2>Requête en cours</h2>
+					<br/><br/>
+					{{ 'registration.check_email'|trans({'%email%': user.email}) }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock fos_user_content %}

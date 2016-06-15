@@ -1,0 +1,19 @@
+accueil_homepage:
+    path:     /
+    defaults: { _controller: AccueilBundle:Default:index }
+    
+accueil_ateliers:
+    path:     /ateliers
+    defaults: { _controller: AccueilBundle:Default:ateliers }
+    
+accueil_coworking:
+    path:     /coworking
+    defaults: { _controller: AccueilBundle:Default:coworking }
+    
+accueil_reservation:
+    path:     /reservation
+    defaults: { _controller: AccueilBundle:Default:reservation }
+    
+membre_homepage:
+    path:     /membre
+    defaults: { _controller: AccueilBundle:Membre:membre }

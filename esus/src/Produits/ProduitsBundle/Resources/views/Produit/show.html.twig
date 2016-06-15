@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+    <div class="container">
+		<div class="row">
+			<div id="entete" class="span12">
+				<h2>Vue du produit <i class="icon-file"></i></h2>
+				<div class="liens span10 paddingBottom bords">
+					<table>
+						<tr>
+							<td>{{ entity.titre }}</td>
+						</tr>
+						<tr>
+							<td>{{ entity.article }}</td>
+						</tr>
+						<tr>
+							<td>{{ entity.image }}</td>
+						</tr>
+						<tr>
+							<td>{{ entity.tarif }}</td>
+						</tr>
+						<tr>
+							<td>{{ entity.confirme }}</td>
+						</tr>
+					</table>
+					<div class="wrapper">
+						<div class="parent">
+							<a href="{{ path('admin_produits') }}" class="bouton children">Retour liste</a>
+						</div>
+					</div>
+					<br/>
+					<div class="wrapper">
+						<div class="parent">
+							<a href="{{ path('admin_produits_edit', { 'id': entity.id }) }}" class="bouton children">Modifier</a>
+						</div>
+					</div>
+					<br/>
+					<div class="wrapper">
+						<div class="parent">
+							<a href="{{ path('admin_produits_new') }}" class="bouton children">Nouvelle entrée</a>
+						</div>
+					</div>
+					<br/>
+					<br/>
+					{{ form(delete_form) }}
+					<br/>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

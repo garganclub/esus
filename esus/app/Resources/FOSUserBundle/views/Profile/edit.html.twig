@@ -1,0 +1,134 @@
+{% extends "::base.html.twig" %}
+{% block metadesc %}
+  <meta title="Ateliers Esus, votre compte utilisateur">
+  <meta desc="page de votre compte utilisateur chez les ateliers Esus">
+{% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('css/panier.css') }}">
+  <style>
+	#formulaireModification li {
+		color: red;
+	}
+  </style>
+{% endblock %}
+{% block title %}Votre compte{% endblock %}
+{% block body %}
+  <input type="hidden" id="localisation" name="localisation" value="{{ app.request.uri }}"/>
+  <div class="wrapper">
+    <section id="section1">
+      <div class="content">
+        <div>
+          <img src="{{ asset('img/compte/imgHeadMobile.png') }}" class="img-responsive col-xs-12 nopadding hidden-sm hidden-md hidden-lg hidden-xl">
+
+          <img src="{{ asset('img/compte/imgHead.jpg') }}" class="img-responsive col-sm-12 nopadding hidden-xs">
+
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <section id="section2">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3">
+
+          <div class="row">
+            <h4 class="formTitle">modifier mes informations</h4>
+          </div>
+          <div class="col-xs-10 col-xs-offset-1">
+            <div class="row">
+              {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit form-group', 'id' : 'formulaireModification' } }) }}
+                <div class="row">
+                  <div class="col-xs-11 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-lg-3 choixSexe">
+
+                    <div class="col-xs-6">
+                      <div class="row">
+                        {{ form_widget(form.civilite['0'], {'attr': {'class': 'col-xs-2'}}) }}
+                        <label for="fos_user_profile_form_civilite_0">Mr</label>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <div class="row">
+                        {{ form_widget(form.civilite['1'], {'attr': {'class': 'col-xs-2'}}) }}
+                        <label for="fos_user_profile_form_civilite_1">Mme</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <!-- pour l'organisation desktop/tablets -->
+                  <div class="hidden-xs col-sm-6">
+                    <label for="fos_user_profile_form_username">Pseudo</label>
+                    {{ form_errors(form.username) }}
+              		{{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                    <label for="fos_user_profile_form_email">Email</label>
+                    {{ form_errors(form.email) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    <label for="fos_user_profile_form_telephone">Téléphone</label>
+                    {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+                    <label for="fos_user_profile_form_current_password">Mot de passe</label>
+                    {{ form_errors(form.current_password) }}
+                    {{ form_widget(form.current_password, {'attr': {'class': 'form-control'}}) }}
+                  </div>
+                  <div class="hidden-xs col-sm-6">
+                    <label for="fos_user_profile_form_nom">Nom</label>
+                    {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                    <label for="fos_user_profile_form_prenom">Prénom</label>
+                    {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                    <label for="fos_user_profile_form_adresse">Adresse</label>
+                    {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
+                    <label for="fos_user_profile_form_ville">Ville</label>
+                    {{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <label for="fos_user_profile_form_codePostal">Code postal</label>
+                        {{ form_widget(form.codePostal, {'attr': {'class': 'form-control pull-right'}}) }}
+                      </div>
+                      <div class="col-sm-6">
+                        <label for="fos_user_profile_form_pays">Pays</label>
+                        {{ form_widget(form.pays, {'attr': {'class': 'form-control pull-left'}}) }}
+                      </div>
+                    </div>
+                  </div>
+                  <!-- pour l'organisation mobile
+                  <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
+                    <label for="pseudoUserInsc">Nom d'utilisateur</label>
+                    <input type="text" class="form-control" id="pseudoUserInsc">
+                    <label for="emailUserInsc">Email</label>
+                    <input type="email" class="form-control" id="emailUserInsc">
+                    <label for="telUserInsc">Téléphone</label>
+                    <input type="text" class="form-control" id="telUserInsc">
+                    <label for="nomUserInsc">Nom</label>
+                    <input type="text" class="form-control" id="nomUserInsc">
+                    <label for="prenomUserInsc">Prénom</label>
+                    <input type="text" class="form-control" id="prenomUserInsc">
+                    <label for="adresseUserInsc">Adresse</label>
+                    <input type="text" class="form-control" id="adresseUserInsc">
+                    <label for="villeUserInsc">Ville</label>
+                    <input type="text" class="form-control" id="villeUserInsc">
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-7">
+                        <label for="cpUserInsc">Code postal</label>
+                        <input type="text" class="form-control pull-right" id="cpUserInsc">
+                      </div>
+                      <div class="col-xs-6 col-sm-5">
+                        <label for="paysUserInsc">Pays</label>
+                        <input type="text" class="form-control pull-left" id="paysUserInsc">
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="row">
+                  <div class=" col-xs-12 col-sm-6 pull-left">
+                    <a href="{{ path('fos_user_change_password') }}" class="lienFormulaire">Changer de mot de passe</a>
+                  </div>
+                  <div class=" col-xs-12 col-sm-6 pull-right">
+                    <input type="submit" class="btnNoir col-xs-12" value="valider"/>
+                  </div>
+                </div>
+              {{ form_end(form) }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

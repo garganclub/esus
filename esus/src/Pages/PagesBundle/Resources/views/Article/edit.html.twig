@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+	<div class="container">
+		<div class="row">
+			<div id="entete" class="span12">
+				<h2>Modifier l'article <i class="icon-edit"></i></h2>
+				<div class="liens paddingRight span9 bords">
+					{{ form(edit_form) }}
+					<div class="wrapper">
+						<div class="parent">
+							<a href="{{ path('admin_articles') }}" class="bouton children">Retour liste</a>
+						</div>
+						<br/>
+						{{ form(delete_form) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+{% endblock %}

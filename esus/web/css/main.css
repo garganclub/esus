@@ -1,0 +1,1006 @@
+/* POLICES */
+
+
+/* helvetica */
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url({{ asset('fonts/lte51250.woff') }});
+}
+@font-face {
+  font-family: 'HelveticaIt';
+  src: url({{ asset('fonts/lte51251.woff') }});
+}
+@font-face {
+  font-family: 'HelveticaBold';
+  src: url({{ asset('fonts/lte51252.woff') }});
+}
+@font-face {
+  font-family: 'HelveticaBoldIt';
+  src: url({{ asset('fonts/lte51253.woff') }});
+}
+@font-face {
+  font-family: 'HelveticaLight';
+  src: url({{ asset('fonts/lte50046.woff') }});
+}
+@font-face {
+  font-family: 'HelveticaLightIt';
+  src: url({{ asset('fonts/lte50047.woff') }});
+}
+
+/* helveticaNeue */
+
+@font-face {
+  font-family: 'helveticaNeue';
+  src: url({{ asset('fonts/lte50259.woff') }});
+}
+@font-face {
+  font-family: 'helveticaNeueIt';
+  src: url({{ asset('fonts/lte50260.woff') }});
+  font-style: italic;
+}
+@font-face {
+  font-family: 'helveticaNeueBold';
+  src: url({{ asset('fonts/lte50261.woff') }});
+}
+@font-face {
+  font-family: 'helveticaNeueBoldIt';
+  src: url({{ asset('fonts/lte50262.woff') }});
+}
+@font-face {
+  font-family: 'helveticaNeueLight';
+  src: url({{ asset('fonts/lte50257.woff') }});
+}
+@font-face {
+  font-family: 'helveticaNeueLightIt';
+  src: url({{ asset('fonts/lte50258.woff') }});
+}
+@font-face {
+  font-family: 'helveticaNeueCdnBold';
+  src: url({{ asset('fonts/lte50001.woff') }});
+}
+@font-face {
+  font-family: 'helveticaNeueCdnBoldIt';
+  src: url({{ asset('fonts/lte50002.woff') }});
+}
+
+/* bases du body*/
+
+body {
+  font-family: 'helveticaNeue', 'Helvetica', arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+/*FIN POLICES*/
+
+
+/* GENERAL */
+
+
+/*INFO !!!!!
+Warning: line 3994 of bootstrap.css disabled due to a
+bug with the focus staying enabled even after the release of the button
+.*/
+
+.container {
+  width: 100%;
+}
+a {
+  color: #000;
+}
+a:hover {
+  color: #000;
+}
+label {
+  font-family: 'HelveticaLight', 'Helvetica', arial, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  padding-right: 5px;
+  color: #CCC;
+  margin-top: 10px;
+  padding-left: 12px;
+}
+/*Boutons*/
+.btn {
+  font-family: 'helveticaNeueBold', 'Helvetica', arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid 3px #000;
+  border-radius: 0;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  background: none;
+}
+
+.btn:hover{
+  color: #FFF;
+  background-color: #000;
+}
+.btn:hover > a{
+  color: #FFF;
+}
+.btnBlanc {
+  font-family: 'helveticaNeueBold', 'Helvetica', arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid 3px #FFF;
+  border-radius: 0;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  background: none;
+  color: #FFF;
+}
+
+.btnBlanc:hover{
+  color: #FFF;
+  background-color: #000;
+  text-decoration: none;
+}
+.btnBlanc:hover > a{
+  color: #FFF;
+  text-decoration: none;
+}
+
+/*boutons d'avertissement*/
+.alert-warning {
+  background-color: #f03c51;
+  color: #FFF;
+}
+
+/*Boutons pour fond noir*/
+
+.btnFondNoir {
+  float: right;
+  height: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  line-height: normal;
+  margin-top: 5px;
+  margin-bottom: 0;
+  padding: 5px 25px;
+  border: 0;
+  border-radius: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: #FFF;
+}
+
+/*Remplissage des boutons au hover*/
+
+.btn-remp:after {
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.btn-remp:hover, .btn-remp:active {
+  color: #ffffff;
+}
+.btn-remp:hover:after, .btn-remp:active:after {
+  width: 100%;
+}
+.btn a {
+  font-family: 'helveticaNeueBold', 'Helvetica', arial, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+.navbar-header > .btn {
+  border: 0;
+  float: left;
+}
+.icon-bar {
+  background-color: #FFF;
+}
+/*Pour les pages blanches majoritairement*/
+.navbar-toggle .icon-barBlack {
+  display: block;
+  width: 40px;
+  height: 4px;
+  border-radius: 1px;
+  background-color: #000;
+}
+.navbar-toggle .icon-barBlack + .icon-barBlack {
+  margin-top: 10px;
+}
+
+/* problème d'espace sur le côté droit en dessous de 1540px --> hack pour regler ce bug.*/
+
+html, body {
+  overflow-x: hidden;
+}
+section {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* gestion des éléments sans marges externes*/
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/*changement des images au survol*/
+
+img:hover {
+  -webkit-filter: grayscale(66%);
+  /* IE 6-9 */
+  -webkit-filter: gray;
+  -moz-filter: grayscale(66%);
+  -ms-filter: grayscale(66%);
+  -o-filter: grayscale(66%);
+  filter: grayscale(66%);
+  /* IE 6-9 */
+  filter: gray;
+}
+
+/*Modification du hover img uniquement pour les en-tetes*/
+#section1 > .content > div > img:hover {
+  -webkit-filter: grayscale(0%);
+  /* IE 6-9 */
+  -webkit-filter: none;
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+  /* IE 6-9 */
+  filter: none;
+}
+/* NAVIGATION */
+
+#connexion-nav {
+  padding-right: 0;
+}
+.memberNav > ul>li>a {
+  border-top: 0;
+  font-size: 0.875em;
+  padding-right: 15px;
+}
+.memberNav > ul>li>a:hover {
+  border-top: 0;
+  color: #000;
+}
+#main-nav {
+  padding-right: 0;
+  padding-bottom: 15px;
+}
+#main-nav li {
+  padding-right: 0;
+}
+.nav > li > a {
+  padding-left: 0;
+  padding-right: 20px;
+}
+.nav > li > a:hover {
+  color: #000;
+  border-top-color: #FFF;
+}
+.navbarfull a {
+  font-family: 'helveticaNeue', 'Helvetica', arial, sans-serif;
+  font-size: 1.286em;
+  font-weight: 400;
+  line-height: 1;
+  color: #FFF;
+  border-top: solid 12px;
+}
+.navbarfull > .navbar-brand a {
+  border-top: 0;
+}
+
+/*Dropdown ateliers*/
+
+.dropdown-menu {
+  background-color: #FFF;
+  background-color: rgba(255, 255, 255, 0.70);
+  padding: 0;
+  margin: 30px 0 0 0;
+  border-radius: 0;
+  left: auto;
+}
+
+/*classique*/
+
+.dropdown-menu > li > a {
+  color: #000;
+  border-top: 0;
+  text-transform: uppercase;
+  font-size: 1.125em;
+}
+.dropdown-menu > li > a:hover {
+  color: #FFF;
+  background-color: #000;
+}
+
+/*Lors du hover*/
+
+.navblack > .container > .row > .nav > li > .dropdown-menu {
+  background-color: #000;
+}
+.navblack > .container > .row > .nav > li > .dropdown-menu > li > a {
+  color: #FFF;
+}
+.navblack > .container > .row > .nav > li > .dropdown-menu > li > a:hover {
+  color: #000;
+  background-color: #FFF;
+}
+
+/*Transition et classes pour la navigation au scroll*/
+
+.navbarfull {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.navblack {
+  background-color: #000;
+  padding: 0;
+}
+.navblack > .container > .row > .nav > li > a:hover {
+  background-color: #000;
+  border-top-color: #FFF;
+  color: #FFF;
+}
+.navblack > .container > .row > .memberNav > ul>li>a:hover {
+  color: #FFF;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: inherit;
+  border-color: #FFF;
+}
+
+/* CONTENT */
+
+
+/*SECTION 1 - VIDEO*/
+
+#section1 {
+  position: relative;
+  width: 100%;
+  height: 0%;
+  padding-bottom: 50%;
+  margin-top: 0;
+}
+#videoContainer {
+  position: absolute;
+  width: 100% !important;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: top center;
+  z-index: 0;
+  display: block;
+  overflow: hidden;
+}
+video.videoFS {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  display: inline-block;
+  bottom: 0;
+  left: 0;
+  border: 0;
+}
+
+/* gestion IE8 pour la video */
+
+video {
+  display: block;
+}
+
+/*SECTION 2 - CREATION LYONNAISE*/
+
+.textDesc {
+  text-align: justify;
+}
+.sliderWorkshop {
+  margin-top: 70px;
+}
+.sliderTitle {
+  text-transform: uppercase;
+  font-family: 'helveticaNeueCdnBold', 'HelveticaBold', arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* Gestion carroussel */
+
+
+/*.carousel-inner > .item {
+    padding-left: 15px;
+  }*/
+
+.carousel-caption .btn {
+  text-shadow: none;
+  padding: 5px 30px;
+}
+.carousel {
+  margin-bottom: -50px;
+}
+.carousel-inner {
+  padding-left: 0;
+  padding-bottom: 10px;
+  margin: 0;
+  width: 50%;
+}
+.carousel-indicators {
+  text-align: left;
+  padding-left: 5px;
+  margin-bottom: 115px;
+  left: 0;
+  margin-left: -20px;
+}
+.carousel-indicators li {
+  background-color: #bababa;
+  border: solid 2px #afafaf;
+}
+.carousel-indicators .active {
+  background-color: #000;
+}
+.carousel-caption {
+  position: relative;
+  text-align: right;
+  padding-left: 0;
+  padding-right: 0;
+  left: 0;
+  right: 0;
+}
+.titre {
+  color: #000;
+  font-size: 2em;
+  font-family: 'helveticaNeueCdnBold', 'Helvetica', arial, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: right;
+  text-shadow: none;
+  margin-bottom: 0;
+  padding-top: 10px;
+}
+
+/*SECTION 3 - LES ATELIERS*/
+
+
+/*Gestion de la présentation ateliers*/
+
+.presAteliers {
+  background-color: #ececec;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.presAteliers > .row > div {
+  margin-bottom: 40px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*SECTION 4 - LES OFFRES*/
+
+.offresEsus {
+  margin-top: 20px;
+}
+.offre {
+  margin-top: 20px;
+  padding-right: 7.5px;
+  padding-left: 7.5px;
+}
+.divideSection4 {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  padding: 0;
+}
+.divideSection4 hr {
+  border: solid 1px #000;
+}
+
+/*SECTION 5 - LES INFOS CONTACTS*/
+
+.contactHeader {
+  padding-left: 0;
+  padding-bottom: 40px;
+}
+.contactHeader span {
+  color: #000;
+  text-transform: uppercase;
+  /*font-family: "helveticaNeueCdnBold", 'helvetica', arial, sans-serif;*/
+  font-family: 'helveticaNeueCdnBold', 'HelveticaBold', arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Gestion GoogleMaps */
+
+#mapEsus {
+  width: 511px;
+  height: 511px;
+}
+
+/*Gestion de l'affichage des infos contacts*/
+
+.infoContact {
+  padding-top: 70px;
+  padding-right: 0;
+}
+.texteContact {
+  padding-bottom: 130px;
+}
+.texteContact p {
+  color: #000;
+  font-family: 'helveticaNeueBold', 'Helvetica', arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.1;
+  text-decoration: none;
+  text-align: right;
+  text-shadow: none;
+  margin: 0;
+}
+
+/*FOOTER*/
+
+footer {
+  padding: 0;
+  margin-top: 75px;
+  width: 100%;
+  background-color: #000;
+}
+.footerLeft, .footerMiddle, .footerRight {
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+.footerLeft {
+  padding-left: 0;
+  padding-right: 0;
+}
+.footerLeft > .row > span {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #FFF;
+}
+.socialMedia {
+  padding-left: 0;
+  padding-right: 0;
+}
+.socialMedia a {
+  display: inline-block;
+  padding-bottom: 60px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.socialMedia img {
+  padding: 0 5px;
+}
+.liensFooter {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 30px;
+}
+.liensFooter a {
+  padding-left: 0;
+  padding-right: 0;
+  color: #FFF;
+  text-decoration: none;
+  font-size: 14px;
+}
+.liensFooter a:hover {
+  text-decoration: underline;
+}
+
+/*milieu du footer*/
+
+.footerMiddle {
+  color: #FFF;
+  padding-bottom: 0;
+}
+.footerAddressLeft > .text-right > p {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 0.5;
+  white-space: pre;
+}
+.footerAddressRight {
+  border-left: solid 3px #FFF;
+}
+.footerAddressRight > .text-left > .addressUp {
+  padding-bottom: 55px;
+}
+.footerAddressRight > .text-left > .addressUp, .addressDown > p {
+  font-size: 16px;
+  line-height: 1.125;
+  margin-bottom: 0;
+}
+
+/*Footer droite: newsletter*/
+
+.footerRight > div > form {
+  margin: 0;
+}
+.footerRight > div > form > .form-group > span {
+  color: #FFF;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0;
+}
+.footerRight > div > form > .form-group > input {
+  border-radius: 0;
+  height: 25px;
+  margin-bottom: 0;
+}
+
+/* MEDIAQUERIES */
+
+
+/*MOBILE*/
+
+@media screen and (max-width: 767px) {
+  /*Gestion de la navigation mobile*/
+  .navbar-toggle {
+    float: left;
+    border: 0;
+  }
+  .navmenu {
+    background-color: #2d2d2d;
+  }
+  .navmenu > div > ul > li > .btn {
+    border: solid 2px #FFF;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .navmenu > div > ul > li > a.btn {
+    font-size: 18px;
+  }
+  .navmenu > div > ul > li > a {
+    padding-left: 40px;
+    padding-right: 20px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    text-decoration: none;
+    font-size: 24px;
+    font-family: 'helveticaNeue', 'Helvetica', arial, sans-serif;
+    line-height: 1;
+    color: #FFF;
+  }
+  .navbar-toggle .icon-bar {
+    display: block;
+    width: 40px;
+    height: 4px;
+    border-radius: 1px;
+    background-color: #FFF;
+  }
+  .navbar-toggle .icon-bar + .icon-bar {
+    margin-top: 10px;
+  }
+  .dividerMobile {
+    padding-left: 40px;
+    padding-right: 30px;
+  }
+  .dividerMobile hr {
+    margin: 10px 0;
+  }
+  /*gestion video mobile*/
+  #section1 {
+    padding-bottom: 0;
+  }
+  .imgMobileHead {
+    display: inline-block;
+  }
+  .videoFS {
+    display: none;
+  }
+  .creaLyonDesc {
+    padding-bottom: 30px;
+  }
+  .sliderWorkshop {
+    margin: 0;
+  }
+  #section3 {
+    margin-bottom: 0;
+  }
+  .presAteliers {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .presAteliers > .row > a {
+    margin: 0;
+  }
+  .presAteliers > .row > span {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  #section4 {
+    margin: 0;
+  }
+  .offresEsus {
+    margin: 0;
+  }
+  .offre {
+    padding: 0;
+    margin: 0;
+  }
+  #section5 {
+    margin: 0;
+    padding: 0;
+  }
+  #contact {
+    margin: 0 -15px;
+    padding: 0;
+  }
+  .infoContact {
+    padding-top: 20px;
+    padding-left: 0;
+  }
+  .contactHeader {
+    text-align: center;
+    background-color: #e6e6e6;
+    padding: 20px 0;
+  }
+  .infoContact > .texteContact {
+    padding-bottom: 20px;
+  }
+  .infoContact > .texteContact p {
+    text-align: center;
+    text-decoration: underline;
+  }
+  footer {
+    padding: 10px 0 0 0;
+    margin: 10px 0 0 0;
+  }
+  .socialMedia a {
+    text-align: center;
+  }
+  .socialMedia {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .socialMedia img {
+    width: auto;
+    height: auto;
+  }
+  .liensFooter {
+    padding-top: 20px;
+    padding-bottom: 0;
+    text-align: center;
+  }
+  .newsletterMobile {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .newsletterMobile > div > form {
+    margin: 0;
+    padding: 0;
+  }
+  .navbar-form {
+    box-shadow: inset 0 0 0, 0 0 0;
+  }
+  .newsletterMobile > div > form > .form-group {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .newsletterMobile > div > form > .form-group > span {
+    color: #FFF;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0 0 5px 0;
+  }
+  .newsletterMobile > div > form > .form-group > input {
+    border-radius: 0;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .btnFondNoir {
+    float: inherit;
+    margin-top: 10px;
+  }
+  .newsletterMobile > div > form > .form-group > button {
+    margin-top: 0;
+  }
+}
+
+/* Gestion Version tablette */
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .btnNoir {
+    width:auto;
+  }
+
+  .nav > li > a {
+    font-size: 10px;
+    line-height: 1;
+  }
+  .creaLyonHeader > img {
+    margin-left: 65px;
+  }
+  .carousel-inner {
+    width: 100%;
+  }
+  .carousel-caption {
+    position: relative;
+    text-align: right;
+    padding-right: 50px;
+  }
+  .carousel-indicators {
+    margin-bottom: 115px;
+    left: 0;
+    margin-left: 0;
+  }
+  #section5 {
+    margin: 0;
+    padding: 0;
+  }
+  #contact {
+    margin: 0 -15px;
+    padding: 0;
+  }
+  .infoContact {
+    padding-top: 20px;
+    padding-left: 0;
+  }
+  .contactHeader {
+    text-align: center;
+    background-color: #e6e6e6;
+    padding: 20px 0;
+  }
+  .infoContact > .texteContact {
+    padding-bottom: 20px;
+  }
+  .infoContact > .texteContact p {
+    text-align: center;
+    text-decoration: underline;
+  }
+  footer {
+    padding: 10px 0 0 0;
+    margin: 10px 0 0 0;
+  }
+  .socialMedia a {
+    text-align: center;
+  }
+  .socialMedia {
+    padding-left: 15px;
+  }
+  .socialMedia img {
+    width: auto;
+    height: auto;
+  }
+  .liensFooter {
+    padding-top: 20px;
+    padding-bottom: 0;
+    text-align: center;
+  }
+  .newsletterMobile {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .newsletterMobile > div > form {
+    margin: 0;
+    padding: 0;
+  }
+  .navbar-form {
+    box-shadow: inset 0 0 0, 0 0 0;
+  }
+  .newsletterMobile > div > form > .form-group {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .newsletterMobile > div > form > .form-group > span {
+    color: #FFF;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0 0 5px 0;
+  }
+  .newsletterMobile > div > form > .form-group > input {
+    border-radius: 0;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .btnFondNoir {
+    float: inherit;
+    margin-top: 10px;
+  }
+  .newsletterMobile > div > form > .form-group > button {
+    margin-top: 0;
+  }
+}
+
+/* Gestion Version desktop */
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .mobile-menu {
+    visibility: hidden;
+  }
+  .nav > li > a {
+    font-size: 10px;
+    line-height: 1;
+  }
+  .carousel-indicators {
+    margin-bottom: 115px;
+    left: 0;
+  }
+  #mapEsus {
+    width: 650px;
+  }
+  .infoContact > .texteContact {
+    padding-bottom: 20px;
+  }
+  .infoContact > .texteContact p {
+    text-align: center;
+    text-decoration: underline;
+  }
+  .infoContact {
+    padding-right: 0;
+    margin-right: 25%;
+    margin-left: 25%;
+    padding-top: 70px;
+  }
+}
+
+/* Gestion Version large desktop */
+
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  .nav > li > a {
+    font-size: 12px;
+    line-height: 1;
+  }
+  .carousel-indicators {
+    margin-bottom: 110px;
+    left: 0;
+  }
+  .mobile-menu {
+    visibility: hidden;
+  }
+}
+
+/* Version grosse résolution: +1600px*/
+
+@media screen and (min-width: 1600px) {
+  .nav > li > a {
+    font-size: 16px;
+    line-height: 1;
+  }
+  .carousel-indicators {
+    margin-bottom: 110px;
+    left: 0;
+  }
+  .mobile-menu {
+    visibility: hidden;
+  }
+  .presAteliers > .row > div {
+    left: 12.3333%
+  }
+  .infoContact {
+    padding-right: 40px;
+  }
+}

@@ -1,0 +1,147 @@
+{% extends "::base.html.twig" %}
+{% block metadesc %}
+  <meta title="Workshop de fabrication d'un mini skate par les ateliers Esus">
+  <meta desc="Réservez votre fabrication de mini skate personnel !">
+{% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('css/panier.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/workshopContent.css') }}">
+{% endblock %}
+{% block title %}La fabrication d'un mini skate organisée par les ateliers Esus{% endblock %}
+{% block body %}
+  <input type="hidden" id="localisation" name="localisation" value="{{ app.request.uri }}"/>
+  <section id="section1">
+    <div class="content">
+      <div>
+        <img src="{{ asset('img/workshopContent/imgHeadMobile.png') }}" class="img-responsive col-xs-12 nopadding hidden-sm hidden-md hidden-lg hidden-xl">
+        <img src="{{ asset('img/workshopContent/imgHead.jpg') }}" class="img-responsive col-sm-12 nopadding hidden-xs">
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <section id="section2">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2">
+          <h4 class="formTitle">fabrication d'un mini skate</h4>
+        </div>
+      </div>
+    </section>
+    <section id="section3">
+      <div class="row">
+        <!-- Carroussel -->
+        <div id="miniskateCarousel" class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-lg-4 col-lg-offset-2">
+          <div class="row">
+            <div class="col-xs-12 nopadding">
+              <img src="{{ asset('img/workshopContent/imgProduit01.jpg') }}" alt="" class="img-responsive col-xs-12" />
+            </div>
+            <div class="col-sm-12 hidden-xs nopadding">
+              <img src="{{ asset('img/workshopContent/thumbnail01.jpg') }}" alt="" class="img-thumbnail img-responsive col-sm-2">
+              <img src="{{ asset('img/workshopContent/thumbnail02.jpg') }}" alt="" class="img-thumbnail img-responsive col-sm-2">
+              <img src="{{ asset('img/workshopContent/thumbnail03.jpg') }}" alt="" class="img-thumbnail img-responsive col-sm-2">
+              <img src="{{ asset('img/workshopContent/thumbnail04.jpg') }}" alt="" class="img-thumbnail img-responsive col-sm-2">
+              <img src="{{ asset('img/workshopContent/thumbnail05.jpg') }}" alt="" class="img-thumbnail img-responsive col-sm-2">
+              <img src="{{ asset('img/workshopContent/thumbnail06.jpg') }}" alt="" class="img-thumbnail img-responsive col-sm-2">
+            </div>
+          </div>
+        </div>
+        <div id="miniskateInfo" class="col-xs-10 col-xs-pull-1 col-sm-4 col-sm-pull-2 col-md-5 col-md-pull-1 col-lg-3 col-lg-pull-3 pull-right">
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="dateProduit">Samedi 27 février de 15h à 19h</p>
+              <hr class="divider">
+            </div>
+          </div>
+          <div class="row">
+            <p class="col-xs-12">Pour ce workshop débutant, nous vous proposons un après-midi entier d’apprentissage comprenant une formation bois et la découverte de la découpe laser. A l’issu de cette journée, vous serez ravis de rider avec vos nouvelles compétences sur
+              votre skate personnalisé ! </p>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="prix">170€</p>
+              <hr class="dividerPrix">
+            </div>
+
+          </div>
+          <div class="row infoPlaces">
+            <div class="col-xs-12 col-sm-6 bordureDroite placesContainer">
+              <p class="col-xs-12 places">Nombre de places</p>
+              <select name="qte" class="esusSelect" onchange="">
+                <option value="1" selected="selected">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+              </select>&nbsp;
+            </div>
+            <div class="col-xs-12 col-sm-6 placesContainer">
+              <p class="col-xs-12 places">Places disponibles</p>
+              <p class="nbrePlaces">17</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 reservationWS">
+              <a href="" class="btn btnReservation">RÉSERVER</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </section>
+  <section id="section4">
+    <div class="row hidden-xs">
+      <div class=" col-sm-10 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <h4 class="formTitle col-sm-3 col-lg-2">détails</h4>
+        <hr class="divider col-sm-8 col-lg-9">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+        <p class="infosTitre">
+          INFOS PRATIQUES
+        </p>
+        <p class="infosTexte">
+          Date et horaires : Samedi 27 février, de 15h à 19h
+          <br> Lieux : Atelier Ésus - 13 Rue Bouteille LYON 69001
+          <br> Nombre de participants minimum : 3 personnes
+          <br> Nombre de participants maximum : 4 personnes
+          <br> Durée du workshop : 4 heures
+          <br> Niveau : Tous niveaux (débutant, intermédiaire, confirmé)
+        </p>
+        <p class="infosTitre">
+          OBJECTIFS
+        </p>
+        <p class="infosTexte">
+          Pour ce workshop Skate débutant, nous vous proposons un après-midi entier d’apprentissage comprenant une formation bois et la découverte de la découpe laser. A l’issu de cette journée, vous serez ravis de rider avec vos nouvelles compétences sur votre
+          skate personnalisé ! Apprentissage : scie à onglet, scie sauteuse, défonceuse, perceuse, ponceuse Découverte : machine à commandes numériques - découpe laser Speedy 100
+        </p>
+        <p class="infosTitre">
+          PRÉREQUIS
+        </p>
+        <p class="infosTexte">
+          - Apportez vos design/logos en format vectoriel si vous souhaitez personnaliser votre planche
+          <br> - Aucun pré-requis n'est demandé, que vous soyez débutant ou confirmé, ce workshop est fait pour vous !
+        </p>
+        <p class="infosTitre">
+          DESCRIPTION
+        </p>
+        <p class="infosTexte">
+          Avant son industrialisation, il fallait pour monter un skate se munir simplement d’une planche en bois sur laquelle étaient fixés trucks et roues. Ce qu’on aime dans ce projet, c’est le caractère unique du produit lié aux formes créées par la matière.
+          Aux ateliers Esus, nous vous donnons l’opportunité de créer votre cruiser, de la découpe de la planche dans l’atelier bois jusqu’à la gravure laser de votre logo ou autre design.
+        </p>
+      </div>
+    </div>
+  </section>
+{% endblock %}

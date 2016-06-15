@@ -1,0 +1,29 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block fos_user_content %}
+	<script>
+		$("#modulePerdu").modal();
+	</script>
+	<div id="modulePerdu" class="modal fade nopadding" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" id="fermerEncoursMDP" class="close pull-left" data-dismiss="modal">&times;</button>
+					<script>
+						$("#fermerEncoursMDP").click(function(){
+							location.href=$('#localisation').val();
+						});
+					</script>
+					<div id="envoidemailMDP">
+						{% for flashMessage in app.session.flashbag.get('success') %}
+							<div class="alert alert-success">{{ flashMessage }}</div>
+						{% endfor %}
+						<h2>Contrôle de votre e-mail</h2>
+						<br/><br/>
+						{{ 'resetting.check_email'|trans({'%email%': email}) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

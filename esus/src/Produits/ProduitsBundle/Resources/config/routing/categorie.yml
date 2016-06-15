@@ -1,0 +1,30 @@
+admin_categories:
+    path:     /
+    defaults: { _controller: "ProduitsBundle:Categorie:index" }
+
+admin_categories_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProduitsBundle:Categorie:show" }
+
+admin_categories_new:
+    path:     /new
+    defaults: { _controller: "ProduitsBundle:Categorie:new" }
+
+admin_categories_create:
+    path:     /create
+    defaults: { _controller: "ProduitsBundle:Categorie:create" }
+    requirements: { _method: post }
+
+admin_categories_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProduitsBundle:Categorie:edit" }
+
+admin_categories_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProduitsBundle:Categorie:update" }
+    requirements: { _method: post|put }
+
+admin_categories_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProduitsBundle:Categorie:delete" }
+    requirements: { _method: post|delete }

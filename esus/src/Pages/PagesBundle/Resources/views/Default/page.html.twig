@@ -1,0 +1,106 @@
+{% extends "::base.html.twig" %}
+{% block metadesc %}
+  <meta title="Les actualités des ateliers Esus">
+  <meta desc="Suivez les dernières news des ateliers Esus, les retours des workshops...">
+{% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('css/panier.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/newsContent.css') }}">
+{% endblock %}
+{% block title %}Les actualités des ateliers Esus{% endblock %}
+{% block body %}
+    <input type="hidden" id="localisation" name="localisation" value="{{ app.request.uri }}"/>
+    <section id="section1">
+      <div class="content">
+        <div>
+          <img src="{{ asset('img/news/imgHeadMobile.png') }}" class="img-responsive col-xs-12 nopadding hidden-sm hidden-md hidden-lg hidden-xl">
+          <img src="{{ asset('img/news/imgHead.jpg') }}" class="img-responsive col-sm-12 nopadding hidden-xs">
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <section id="section2">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2">
+            <h4 class="formTitle">Retour sur les ateliers ésus au Sucre !</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2">
+            <p class="dateNews">Publiée le 04.04.2016</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 articleContainer">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 newsContainer">
+              <div class="col-xs-12">
+                <img src="{{ asset('img/newsContent/imgContent01.jpg') }}" alt="" class="img-responsive col-xs-12 nopadding">
+              </div>
+              <div class="col-xs-12">
+                <p class="articleEntete">
+                  M Bajard et son équipe investissent Le Sucre et vous donnent rendez-vous pendant l'afterwork pour découvrir les ateliers ésus. L'occasion de faire de nouvelles découvertes tout en profitant de la soirée en couple ou entre amis et de se rencontrer.
+                </p>
+              </div>
+              <div class="col-xs-12">
+                <p class="articleNews">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus
+                  error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                  odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt
+                  ut labore et dolore magnam aliquam quaerat voluptatem.
+                </p>
+              </div>
+              <div class="col-xs-12">
+                <img src="{{ asset('img/newsContent/imgContent02.jpg') }}" alt="" class="img-responsive col-xs-12 col-sm-10 col-sm-offset-1">
+              </div>
+              <div class="col-xs-12">
+                <p class="articleEntete">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+              </div>
+              <div class="col-xs-12">
+                <p class="articleNews">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus
+                  error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                  odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt
+                  ut labore et dolore magnam aliquam quaerat voluptatem.
+                </p>
+              </div>
+              <div class="col-xs-12">
+                <img src="{{ asset('img/newsContent/imgContent03.jpg') }}" alt="" class="img-responsive col-xs-12 col-sm-10 col-sm-offset-1">
+              </div>
+              <div class="col-xs-12">
+                <p class="articleEntete">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+              </div>
+              <div class="col-xs-12">
+                <p class="articleNews">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus
+                  error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                  odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt
+                  ut labore et dolore magnam aliquam quaerat voluptatem.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <nav class="col-xs-12 nopadding">
+              <ul class="pager">
+                <li class="previous"><a class="btn btn-remp" href="">précédent</a></li>
+                <li><a href="{{ path('pages_articles') }}" class="btn btn-remp">NEWS</a></li>
+                <li class="next"><a class="btn btn-remp" href="">suivant</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </section>
+    </div>
+{% endblock %}

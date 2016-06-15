@@ -1,0 +1,46 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div id="entete" class="span12">
+				<h2>Sélection <i class="icon-pushpin"></i></h2>
+				<div class="liens span8 bords">
+					<h2>Réservations de {{ utilisateur }}</h2>
+							{% if reservations|length > 0 %}
+								{% if reservations|length == 1 %}
+									{{ reservations|length }} réservation
+								{% else %}
+									{{ reservations|length }} réservations
+								{% endif %}
+								<br/>
+								{% for reservation in reservations %}
+									<h5>{{ reservation.nom }} - {{ reservation.jour }} - {{ reservation.mois }} - 2016</h5>	
+								{% endfor %}
+							{% else %}
+								Aucune réservation de poste
+							{% endif %}
+					<br/>
+					<div class="wrapper">
+						<div class="parent">
+							<a href="{{ path('produits_calendrier') }}" class="bouton children">Retour au calendrier</a>
+						</div>
+					</div>
+					<br/>
+					{% if reservations|length > 0 %}
+						<div class="wrapper">
+							<div class="parent">
+								<a href="{{ path('produits_panier') }}" class="bouton children">Ajouter au panier</a>
+							</div>
+						</div>
+					{% else %}
+						<div class="wrapper">
+							<div class="parent">
+								<a href="{{ path('produits_panier') }}" class="bouton children">Voir le panier</a>
+							</div>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+admin_tva:
+    path:     /
+    defaults: { _controller: "ProduitsBundle:Tva:index" }
+
+admin_tva_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProduitsBundle:Tva:show" }
+
+admin_tva_new:
+    path:     /new
+    defaults: { _controller: "ProduitsBundle:Tva:new" }
+
+admin_tva_create:
+    path:     /create
+    defaults: { _controller: "ProduitsBundle:Tva:create" }
+    requirements: { _method: post }
+
+admin_tva_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProduitsBundle:Tva:edit" }
+
+admin_tva_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProduitsBundle:Tva:update" }
+    requirements: { _method: post|put }
+
+admin_tva_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProduitsBundle:Tva:delete" }
+    requirements: { _method: post|delete }

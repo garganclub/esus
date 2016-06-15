@@ -1,0 +1,363 @@
+{% extends "::base.html.twig" %}
+{% block metadesc %}
+  <meta title="Ateliers Esus, présentation des ateliers du fablab lyonnais">
+  <meta desc="Fablab ateliers esus, imprimante 3D, DIY bois, textile, électronique et découpe laser">
+{% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('css/ateliers.css') }}">
+{% endblock %}
+{% block title %}Les différentes ateliers proposés par les ateliers Esus{% endblock %}
+{% block body %}
+    <input type="hidden" id="localisation" name="localisation" value="{{ app.request.uri }}"/>
+    <section id="section1">
+      <div class="content">
+        <div>
+          <img src="{{ asset('img/ateliers/imgHeadMobile.png') }}" class="img-responsive col-xs-12 nopadding hidden-sm hidden-md hidden-lg hidden-xl">
+          <img src="{{ asset('img/ateliers/imgHead.jpg') }}" class="img-responsive col-sm-12 nopadding hidden-xs">
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="content">
+      	<div id="bois" style="position:relative; top:-200px;"></div>
+        <section id="section2">
+          <!-- nbre postes -->
+          <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2">
+              <span class="quantitePoste col-xs-12 col-sm-3 nopadding">6</span>
+              <span class="nomPoste col-xs-12 col-sm-9 col-md-12 col-lg-9">postes bois</span>
+            </div>
+          </div>
+          <div class="row sliderBois">
+            <!-- Carroussel -->
+            <div id="posteBoisCarousel" class="col-xs-12 col-sm-4 col-sm-pull-2 pull-right">
+              <div id="carouselBois" class="carousel slide col-xs-12" data-ride="carousel">
+                <div class="row">
+                  <div class="carousel-inner nopadding" role="listbox">
+                    <div class="item active">
+                      <img src="{{ asset('img/ateliers/atelierBois.jpg') }}" alt="poste bois, première slide" class="first-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierBois.jpg') }}" alt="poste bois, deuxième slide" class="second-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierBois.jpg') }}" alt="poste bois, troisième slide" class="third-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierBois.jpg') }}" alt="poste bois, quatrième slide" class="fourth-slide img-responsive nopadding col-xs-12">
+                    </div>
+                  </div>
+                  <!-- indicators -->
+                  <div class="row">
+                    <ol class="carousel-indicators carouselBois-indicators">
+                      <li data-target="#carouselBois" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselBois" data-slide-to="1"></li>
+                      <li data-target="#carouselBois" data-slide-to="2"></li>
+                      <li data-target="#carouselBois" data-slide-to="3"></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- description -->
+            <div class="col-xs-12 col-sm-4 col-sm-offset-2 descriptionPoste pull-left">
+              <!-- paragraphe -->
+              <div class="row hidden-xs">
+                <div class="col-sm-9 col-sm-offset-3">
+                  <p class="presentationAtelier">blabalbalbalabalbziabzoabzdouabdazdboaidnzpaizdjpaizjdpoazdjpoajdpoazjdpoajdzpoajz</p>
+                </div>
+              </div>
+              <!-- liste outils -->
+              <div class="row">
+                <div class="col-xs-12 col-sm-9 col-sm-offset-3 listeOutil">
+                  <div class="col-xs-12 col-sm-6 nopadding">
+                    <p class="outil"><span class="hidden-xs">-</span> 1 scie sauteuse</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 1 scie circulaire</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 1 scie à onglet radiale</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 1 dremel et ses accessoires</p>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 nopadding">
+                    <p class="outil"><span class="hidden-xs">-</span> 1 ponceuse</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 2 défonceuses</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 3 établis</p>
+                    <p class="outil"><span class="hidden-xs">-</span> Outillage</p>
+                  </div>
+                </div>
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <a href="" class="col-xs-4 col-xs-offset-4 btn btnReservation">réserver</a>
+                </div>
+                <div class="col-xs-10 col-xs-offset-1 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <hr class="divider">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+		<div id="electronique" style="position:relative; top:-40px;"></div>
+        <section id="section3">
+          <!-- nbre postes -->
+          <div class="row">
+            <div class="col-xs-10 col-xs-pull-1 col-sm-4 col-sm-pull-2 pull-right">
+              <span class="quantitePosteDroite col-xs-12 col-sm-3 nopadding pull-right">2</span>
+              <span class="nomPosteDroite col-xs-12 pull-right">postes électronique</span>
+            </div>
+          </div>
+          <div class="row sliderElec">
+            <!-- Carroussel -->
+            <div id="posteElecCarousel" class="col-xs-12 col-sm-4 col-sm-offset-2 pull-left">
+              <div id="carouselElec" class="carousel slide col-xs-12" data-ride="carousel">
+                <div class="row">
+                  <div class="carousel-inner nopadding" role="listbox">
+                    <div class="item active">
+                      <img src="{{ asset('img/ateliers/atelierElec.jpg') }}" alt="poste électronique, première slide" class="first-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierElec.jpg') }}" alt="poste électronique, deuxième slide" class="second-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierElec.jpg') }}" alt="poste électronique, troisième slide" class="third-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierElec.jpg') }}" alt="poste électronique, quatrième slide" class="fourth-slide img-responsive nopadding col-xs-12">
+                    </div>
+                  </div>
+                  <!-- indicators -->
+                  <div class="row">
+                    <ol class="carousel-indicators carouselElec-indicators">
+                      <li data-target="#carouselElec" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselElec" data-slide-to="1"></li>
+                      <li data-target="#carouselElec" data-slide-to="2"></li>
+                      <li data-target="#carouselElec" data-slide-to="3"></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- description -->
+            <div class="col-xs-12 col-sm-4 col-sm-pull-2 descriptionPoste pull-right">
+              <!-- liste outils -->
+              <div class="row">
+                <div class="col-xs-12 col-sm-9 col-sm-offset-3 listeOutil">
+                  <div class="col-xs-12 col-sm-6 nopadding">
+                    <p class="outil"><span class="hidden-xs">-</span> 4 fers à souder</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 2 oscilloscope</p>
+                    <p class="outil"><span class="hidden-xs">-</span> Kits ARDUINO</p>
+                    <p class="outil"><span class="hidden-xs">-</span> accessoires de soudage</p>
+                    <p class="outil"><span class="hidden-xs">-</span> alimentations de laboratoire</p>
+                    <p class="outil"><span class="hidden-xs">-</span> multimètres</p>
+                  </div>
+                </div>
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <a href="" class="col-xs-4 col-xs-offset-4 btn btnReservation">réserver</a>
+                </div>
+                <div class="col-xs-10 col-xs-offset-1 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <hr class="divider">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+		<div id="impression" style="position:relative; top:-120px;"></div>
+        <section id="section4">
+          <!-- nbre postes -->
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+              <span class="quantitePoste col-xs-12 col-sm-3 nopadding">2</span>
+              <span class="nomPoste col-xs-12 col-sm-9 col-md-12 col-lg-9">postes impression 3D</span>
+            </div>
+          </div>
+          <div class="row sliderBois">
+            <!-- Carroussel -->
+            <div id="posteBoisCarousel" class="col-xs-12 col-sm-4 col-sm-pull-2 pull-right">
+              <div id="carousel3D" class="carousel slide col-xs-12" data-ride="carousel">
+                <div class="row">
+                  <div class="carousel-inner nopadding" role="listbox">
+                    <div class="item active">
+                      <img src="{{ asset('img/ateliers/atelier3D.jpg') }}" alt="poste impression 3D, première slide" class="first-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ ('img/ateliers/atelier3D.jpg') }}" alt="poste impression 3D, deuxième slide" class="second-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelier3D.jpg') }}" alt="poste impression 3D, troisième slide" class="third-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelier3D.jpg') }}" alt="poste impression 3D, quatrième slide" class="fourth-slide img-responsive nopadding col-xs-12">
+                    </div>
+                  </div>
+                  <!-- indicators -->
+                  <div class="row">
+                    <ol class="carousel-indicators carouselBois-indicators">
+                      <li data-target="#carousel3D" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel3D" data-slide-to="1"></li>
+                      <li data-target="#carousel3D" data-slide-to="2"></li>
+                      <li data-target="#carousel3D" data-slide-to="3"></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- description -->
+            <div class="col-xs-12 col-sm-4 col-sm-offset-2 descriptionPoste pull-left">
+              <!-- paragraphe -->
+              <div class="row hidden-xs">
+                <div class="col-sm-9 col-sm-offset-3">
+                  <p class="presentationAtelier">blabalbalbalabalbziabzoabzdouab</p>
+                </div>
+              </div>
+              <!-- liste outils -->
+              <div class="row">
+                <div class="col-xs-12 col-sm-9 col-sm-offset-3 listeOutil">
+                  <div class="col-xs-12 col-sm-6 nopadding">
+                    <p class="outil"><span class="hidden-xs">-</span> 2 imprimantes 3D</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 2 postes informatiques</p>
+                    <p class="outil"><span class="hidden-xs">-</span> Logiciel de conception 3D</p>
+                  </div>
+                </div>
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <a href="" class="col-xs-4 col-xs-offset-4 btn btnReservation">réserver</a>
+                </div>
+                <div class="col-xs-10 col-xs-offset-1 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <hr class="divider">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+		<div id="textile" style="position:relative; top:-50px;"></div>
+        <section id="section5">
+          <!-- nbre postes -->
+          <div class="row">
+            <div class="col-xs-10 col-xs-pull-1 col-sm-4 col-sm-pull-2 pull-right">
+              <span class="quantitePosteDroite col-xs-12 col-sm-3 nopadding pull-right">3</span>
+              <span class="nomPosteDroite col-xs-12 pull-right">postes textile</span>
+            </div>
+          </div>
+          <div class="row sliderElec">
+            <!-- Carroussel -->
+            <div id="posteElecCarousel" class="col-xs-12 col-sm-4 col-sm-offset-2 pull-left">
+              <div id="carouselTextile" class="carousel slide col-xs-12" data-ride="carousel">
+                <div class="row">
+                  <div class="carousel-inner nopadding" role="listbox">
+                    <div class="item active">
+                      <img src="{{ asset('img/ateliers/atelierTextile.jpg') }}" alt="poste textile, première slide" class="first-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierTextile.jpg') }}" alt="poste textile, deuxième slide" class="second-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierTextile.jpg') }}" alt="poste textile, troisième slide" class="third-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierTextile.jpg') }}" alt="poste textile, quatrième slide" class="fourth-slide img-responsive nopadding col-xs-12">
+                    </div>
+                  </div>
+                  <!-- indicators -->
+                  <div class="row">
+                    <ol class="carousel-indicators carouselElec-indicators">
+                      <li data-target="#carouselTextile" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselTextile" data-slide-to="1"></li>
+                      <li data-target="#carouselTextile" data-slide-to="2"></li>
+                      <li data-target="#carouselTextile" data-slide-to="3"></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- description -->
+            <div class="col-xs-12 col-sm-4 col-sm-pull-2 descriptionPoste pull-right">
+              <!-- paragraphe -->
+              <div class="row hidden-xs">
+                <div class="col-sm-6 col-sm-offset-3">
+                  <p class="presentationAtelier">blabalbalbalabalbziabzoabzdouabdazdboaidnzpaizdjpaizjdpoazdjpoajdpoazjdpoajdzpoajz</p>
+                </div>
+              </div>
+              <!-- liste outils -->
+              <div class="row">
+                <div class="col-xs-12 col-sm-9 col-sm-offset-3 listeOutil">
+                  <div class="col-xs-12 col-sm-8 col-sm-offset-1">
+                    <p class="outil"><span class="hidden-xs">-</span> 2 piqueuses industrielles</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 3 machines à coudre familiales</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 1 surjeteuse</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 2 mannequins</p>
+                    <p class="outil"><span class="hidden-xs">-</span> 1 table de coupe</p>
+                    <p class="outil"><span class="hidden-xs">-</span> consommables de base</p>
+                  </div>
+                </div>
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <a href="" class="col-xs-4 col-xs-offset-4 btn btnReservation">réserver</a>
+                </div>
+                <div class="col-xs-10 col-xs-offset-1 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <hr class="divider">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div id="laser" style="position:relative; top:-130px;"></div>
+        <section id="section6">
+          <!-- nbre postes -->
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+              <span class="quantitePoste col-xs-12 col-sm-3 nopadding">1</span>
+              <span class="nomPoste col-xs-12 col-sm-9 col-md-12 col-lg-9">poste <br class="hidden-xs" /> découpe laser</span>
+            </div>
+          </div>
+          <div class="row sliderBois">
+            <!-- Carroussel -->
+            <div id="posteBoisCarousel" class="col-xs-12 col-sm-4 col-sm-pull-2 pull-right">
+              <div id="carouselLaser" class="carousel slide col-xs-12" data-ride="carousel">
+                <div class="row">
+                  <div class="carousel-inner nopadding" role="listbox">
+                    <div class="item active">
+                      <img src="../img/ateliers/atelierLaser.jpg" alt="poste découpe laser, première slide" class="first-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierLaser.jpg') }}" alt="poste découpe laser, deuxième slide" class="second-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierLaser.jpg') }}" alt="poste découpe laser, troisième slide" class="third-slide img-responsive nopadding col-xs-12">
+                    </div>
+                    <div class="item">
+                      <img src="{{ asset('img/ateliers/atelierLaser.jpg') }}" alt="poste découpe laser, quatrième slide" class="fourth-slide img-responsive nopadding col-xs-12">
+                    </div>
+                  </div>
+                  <!-- indicators -->
+                  <div class="row">
+                    <ol class="carousel-indicators carouselBois-indicators">
+                      <li data-target="#carouselLaser" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselLaser" data-slide-to="1"></li>
+                      <li data-target="#carouselLaser" data-slide-to="2"></li>
+                      <li data-target="#carouselLaser" data-slide-to="3"></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- description -->
+            <div class="col-xs-12 col-sm-4 col-sm-offset-2 descriptionPoste pull-left">
+              <!-- paragraphe -->
+              <div class="row hidden-xs">
+                <div class="col-sm-9 col-sm-offset-3">
+                  <p class="presentationAtelier">blabalbalbalabalbziabzoabzdouab</p>
+                </div>
+              </div>
+              <!-- liste outils -->
+              <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-9 col-sm-offset-3 listeOutil">
+                  <div class="col-xs-12 col-sm-6 col-md-10 nopadding">
+                    <p class="outil"><span class="hidden-xs">-</span> 1 découpe laser: Speedy 100 30W de chez TRotec</p>
+                  </div>
+                </div>
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
+                  <a href="" class="col-xs-4 col-xs-offset-4 btn btnReservation">réserver</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+{% endblock %}

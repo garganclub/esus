@@ -1,0 +1,113 @@
+section > div > div > div > div {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.formTitle {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  font-size: 45px;
+}
+.dateNews {
+  font-family: "helveticaNeue", "Helvetica", arial, sans-serif;
+  font-size: 18px;
+}
+.articleEntete {
+  font-family: "helveticaNeueBold", "HelveticaBold", arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+.articleNews {
+  font-family: "helveticaNeue", "Helvetica", arial, sans-serif;
+  font-size: 16px;
+}
+
+/*ORAGANISATION ARTICLES*/
+.articleContainer{
+  padding:0;
+}
+
+.newsContainer {
+  margin-bottom: 30px;
+}
+.newsContainer > a:first-child {
+  padding: 0;
+}
+
+/*PAGINATION*/
+
+.pager > li > a {
+  margin-top: 0;
+  padding: 5px 10px;
+  position: relative;
+  margin-left: 0;
+  color: #000;
+  text-decoration: none;
+  z-index: 1;
+  border-radius: 0;
+  border: solid 3px #000;
+}
+.pager > li:first-child > a {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-family: "helveticaNeueBold", "Helvetica", arial, sans-serif;
+  font-weight: bold;
+  border: solid 3px #000;
+  border-radius: 0;
+  z-index: 1;
+}
+.pager > li:first-child > a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.pager > li:last-child > a {
+  margin-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-transform: uppercase;
+  font-family: "helveticaNeueBold", "Helvetica", arial, sans-serif;
+  font-weight: bold;
+  border: solid 3px #000;
+  border-radius: 0;
+}
+.pager > li:last-child > a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*GESTION MOBILES*/
+
+@media screen and (max-width: 767px) {
+  .img-responsive {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .newsContainer{
+    margin: 0;
+    padding: 0;
+  }
+  .newsContainer > div:first-child {
+    padding: 0;
+  }
+  .dateNews{
+    text-align: center;
+  }
+  /*pagination mobile*/
+  .pager > li:first-child > a {
+    font-size: 12px;
+    margin-left: -10px;
+  }
+  .pager > li:last-child > a {
+    font-size: 12px;
+    margin-right: -10px;
+  }
+}
+
+/*GESTION TABLETS & DESKTOP*/
+
+@media screen and (min-width: 768px) {
+  .img-responsive {
+    padding-left: 0;
+    padding-right: 20px;
+  }
+}

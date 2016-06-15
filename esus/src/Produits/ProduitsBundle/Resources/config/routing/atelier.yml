@@ -1,0 +1,30 @@
+admin_ateliers:
+    path:     /
+    defaults: { _controller: "ProduitsBundle:Atelier:index" }
+
+admin_ateliers_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProduitsBundle:Atelier:show" }
+
+admin_ateliers_new:
+    path:     /new
+    defaults: { _controller: "ProduitsBundle:Atelier:new" }
+
+admin_ateliers_create:
+    path:     /create
+    defaults: { _controller: "ProduitsBundle:Atelier:create" }
+    requirements: { _method: post }
+
+admin_ateliers_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProduitsBundle:Atelier:edit" }
+
+admin_ateliers_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProduitsBundle:Atelier:update" }
+    requirements: { _method: post|put }
+
+admin_ateliers_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProduitsBundle:Atelier:delete" }
+    requirements: { _method: post|delete }

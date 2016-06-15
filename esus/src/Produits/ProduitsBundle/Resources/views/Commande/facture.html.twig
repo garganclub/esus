@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+	<h1>Commande Ajoutée</h1>
+	<h2>{{ utilisateur }}</h2>
+	<h3>Numéro de facture : {{ numeroFacture }}</h3>
+	<table>
+		<td style="width:250px"><h2>titre</h2></td>
+		<td><h2>catégorie&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+		<td><h2>prix unitaire&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+		<td><h2>quantité&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+		<td><h2>prix HT&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+		<td><h2>prix TTC</h2></td>
+		{% for produit in produits %}
+			<tr>
+				<td>{{ produit.titre }}</td>
+				<td>{{ produit.categorie.nom }}</td>
+				<td>{{ produit.tarif|round(2) }} €</td>
+				<td>{{ panier[produit.id] }}</td>
+				<td>{{ produit.tarif * panier[produit.id]|round(2) }} €</td>
+				<td>{{ (produit.tarif * panier[produit.id]) + ((produit.tarif * panier[produit.id]) * produit.tva.valeur / 100)|round(2) }} €</td>
+			</tr>		
+		{% endfor %}
+	</table>
+	<br/>
+	<a href="{{ path('produits_facture') }}">VALIDER</a>
+{% endblock %}

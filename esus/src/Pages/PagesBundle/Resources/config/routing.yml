@@ -1,0 +1,19 @@
+pages_articles:
+    path:     /articles
+    defaults: { _controller: PagesBundle:Default:index }
+    
+pages_page:
+    path:     /article/{id}
+    defaults: { _controller: PagesBundle:Default:page }
+    
+PagesBundle_admin_articles:
+    resource: "@PagesBundle/Resources/config/routing/article.yml"
+    prefix:   /admin/articles
+    
+recherche:
+    path:     /recherche
+    defaults: { _controller: PagesBundle:Default:recherche }
+    
+recherche_pages:
+    path:     /recherchePages
+    defaults: { _controller: PagesBundle:Default:recherchePages }

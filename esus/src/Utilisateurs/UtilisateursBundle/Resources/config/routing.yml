@@ -1,0 +1,26 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
+membre_connexion:
+    path:     /membre_connexion
+    defaults: { _controller: UtilisateursBundle:Connexion:connexion }
+    
+membre_perdu:
+    path:     /membre_perdu
+    defaults: { _controller: UtilisateursBundle:Perdu:perdu }
+    
+membre_email:
+    path:     /membre_email
+    defaults: { _controller: UtilisateursBundle:Perdu:email }
+    
+membre_inscription:
+    path:     /membre_inscription
+    defaults: { _controller: UtilisateursBundle:Inscription:inscription }
+    
+membre_confirmation:
+    path:     /membre_confirmation
+    defaults: { _controller: UtilisateursBundle:Redirection:retour }
+    
+membre_finConfirmation:
+    path:     /membre_finConfirmation
+    defaults: { _controller: UtilisateursBundle:Redirection:fin }

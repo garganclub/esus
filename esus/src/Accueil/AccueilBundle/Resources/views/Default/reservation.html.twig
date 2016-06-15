@@ -1,0 +1,243 @@
+{% extends "::base.html.twig" %}
+{% block metadesc %}
+  <meta title="Ateliers Esus, présentation de l'espace du fablab lyonnais">
+  <meta desc="Fablab ateliers esus, imprimante 3D, DIY bois, textile, électronique et découpe laser">
+{% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('css/ateliers.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/demo.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/calendar.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/custom_2.css') }}" />
+{% endblock %}
+{% block title %}Réservation{% endblock %}
+{% block body %}
+<input type="hidden" id="localisation" name="localisation" value="{{ app.request.uri }}"/>
+<div class="container">
+  <header class="clearfix">
+	<div class="form-group">
+	  <ul class="list-inline">
+		<li>
+		  <input type="radio" id="atelierBois" name="resaAteliers" value="" checked="checked">
+		  <label for="atelierBois">atelier bois</label>
+		</li>
+		<li>
+		  <input type="radio" id="atelierElectronique" name="resaAteliers" value="">
+		  <label for="atelierElectronique">électronique</label>
+		</li>
+		<li>
+		  <input type="radio" id="atelier3D" name="resaAteliers" value="">
+		  <label for="atelier3D">impression 3D</label>
+		</li>
+		<li>
+		  <input type="radio" id="atelierTextile" name="resaAteliers" value="">
+		  <label for="atelierTextile">textile</label>
+		</li>
+		<li>
+		  <input type="radio" id="atelierLaser" name="resaAteliers" value="">
+		  <label for="atelierLaser">découpe laser</label>
+		</li>
+
+	  </ul>
+	</div>
+  </header>  
+  <section class="main">
+    <div class="custom-calendar-wrap">
+      <div id="custom-inner" class="custom-inner">
+        <div class="custom-header clearfix">
+		  <nav>
+			<span id="custom-prev" class="custom-prev"></span>
+			<span id="custom-next" class="custom-next"></span>
+		  </nav>
+		  <h2 id="custom-month" class="custom-month"></h2>
+		  <h3 id="custom-year" class="custom-year"></h3>
+		</div>
+		<div id="calendar" class="fc-calendar-container">
+		</div>
+	  </div>
+	</div>
+	<div>
+	  <button type="button" name="button" class="btnFondNoir btn">Valider votre réservation</button>
+	</div>
+  </section>
+</div>
+{% endblock %}
+{% block footer %}
+    <footer class="container">
+      <div class="col-xs-12 nopadding">
+
+        <div class="footerLeft col-xs-12 col-md-2 col-md-push-2">
+          <div class="row">
+            <span class="col-sm-12 hidden-xs hidden-sm">nous suivre</span>
+            <br />
+            <div class="col-xs-12 col-sm-8 col-sm-push-2 col-md-12 col-md-push-0 socialMedia">
+              <a href="#" class="col-xs-3 col-sm-3 col-md-2"><img src="{{ asset('img/facebook.png') }}" alt="" class="img-responsive img-thumbnail-inverse"></a>
+              <a href="#" class="col-xs-3 col-sm-3 col-md-2"><img src="{{ asset('img/insta.png') }}" alt="" class="img-responsive img-thumbnail-inverse"></a>
+              <a href="#" class="col-xs-3 col-sm-3 col-md-2"><img src="{{ asset('img/youtube.png') }}" alt="" class="img-responsive img-thumbnail-inverse"></a>
+              <a href="#" class="col-xs-3 col-sm-3 col-md-2"><img src="{{ asset('img/twitter.png') }}" alt="" class="img-responsive img-thumbnail-inverse"></a>
+            </div>
+          </div>
+          <div class="row hidden-md hidden-lg hidden-xl">
+            <div id="" class="newsletterMobile col-xs-12">
+              <div id="newsletter" class="col-xs-12 nopadding">
+                <form class="navbar-form col-xs-8 col-xs-push-2 col-sm-6 col-sm-push-4">
+                  <div class="form-group col-xs-12 nopadding">
+                    <span>newsletter</span>
+                    <br />
+                    <input type="text" class="form-control">
+                  </div>
+                  <button type="submit" name="newsletterBtn" class="btn btnFondNoir col-xs-6 col-xs-push-3">ok</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="liensFooter row">
+            <a href="" id="partenaires" class="col-xs-12">Partenaires</a>
+            <a href="" id="condGenerales" class="col-xs-12">Conditions générales de vente</a>
+          </div>
+        </div>
+
+        <div id="" class="footerMiddle hidden-xs hidden-sm col-sm-4 col-sm-push-2">
+          <div id="esusFooterAddress" class="row">
+            <div id="footerAddressLeft" class="col-md-4 footerAddressLeft">
+              <div class="text-right">
+                <p>ateliers
+                  <br />ésus</p>
+              </div>
+            </div>
+            <div id="" class="footerAddressRight col-md-8">
+              <div class="text-left">
+                <div class="addressUp">
+                  <p>13
+                    <br />Rue Bouteille
+                    <br />69001 LYON</p>
+                </div>
+                <div id="footerContact" class="addressDown">
+                  <p>04 25 27 67 95
+                    <br />contact@ateliersesus.com
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="" class="footerRight hidden-xs hidden-sm col-xs-8 col-xs-push-2 col-md-2 col-md-push-2">
+          <div id="newsletter">
+            <form class="navbar-form navbar-right">
+              <div class="form-group">
+                <span>newsletter</span>
+                <br />
+                <input type="text" class="form-control">
+              </div>
+              <br />
+              <button type="submit" name="newsletterBtn" class="btn btnFondNoir">ok</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+{% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+  <script>$("body").attr("id","bgResa");</script>
+  <script src="{{ asset('js/modernizr.custom.63321.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/calendario.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/data.js') }}"></script>
+  <script type="text/javascript">
+    $(function() {
+      function updateMonthYear() {
+        $('#custom-month').html($('#calendar').calendario('getMonthName'));
+        $('#custom-year').html($('#calendar').calendario('getYear'));
+      }
+
+      $(document).on('finish.calendar.calendario', function(e) {
+        $('#custom-month').html($('#calendar').calendario('getMonthName'));
+        $('#custom-year').html($('#calendar').calendario('getYear'));
+        $('#custom-next').on('click', function() {
+          $('#calendar').calendario('gotoNextMonth', updateMonthYear);
+        });
+        $('#custom-prev').on('click', function() {
+          $('#calendar').calendario('gotoPreviousMonth', updateMonthYear);
+        });
+        $('#custom-current').on('click', function() {
+          $('#calendar').calendario('gotoNow', updateMonthYear);
+        });
+      });
+
+      $('#calendar').on('shown.calendar.calendario', function() {
+        $('div.fc-row > div').on('onDayClick.calendario', function(e, dateprop) {
+          console.log(dateprop);
+          if (dateprop.data) {
+            showEvents(dateprop.data.html, dateprop);
+          }
+        });
+      });
+
+      var transEndEventNames = {
+          'WebkitTransition': 'webkitTransitionEnd',
+          'MozTransition': 'transitionend',
+          'OTransition': 'oTransitionEnd',
+          'msTransition': 'MSTransitionEnd',
+          'transition': 'transitionend'
+        },
+        transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+        $wrapper = $('#custom-inner');
+
+      function showEvents(contentEl, dateprop) {
+        hideEvents();
+        var $events = $('<div id="custom-content-reveal" class="custom-content-reveal"><h4>Events for ' + dateprop.monthname + ' ' + dateprop.day + ', ' + dateprop.year + '</h4></div>'),
+          $close = $('<span class="custom-content-close"></span>').on('click', hideEvents);
+        $events.append(contentEl.join(''), $close).insertAfter($wrapper);
+        setTimeout(function() {
+          $events.css('top', '0%');
+        }, 25);
+      }
+
+      function hideEvents() {
+        var $events = $('#custom-content-reveal');
+        if ($events.length > 0) {
+          $events.css('top', '100%');
+          Modernizr.csstransitions ? $events.on(transEndEventName, function() {
+            $(this).remove();
+          }) : $events.remove();
+        }
+      }
+
+      $('#calendar').calendario({
+        caldata: events,
+        displayWeekAbbr: true,
+        events: ['click', 'focus']
+      });
+
+    });
+  </script>
+  <style>
+  	/*RESA*/
+		body#bgResa:before {
+			content: "";
+			position: absolute;
+			width : 100%;
+			height: 100%;
+			z-index: -1;
+		
+			filter        : blur(5px);
+			-moz-filter   : blur(5px);
+			-webkit-filter: blur(5px);
+			-o-filter     : blur(5px);
+		
+			transition        : all 2s linear;
+			-moz-transition   : all 2s linear;
+			-webkit-transition: all 2s linear;
+			-o-transition     : all 2s linear;
+			background:url({{ asset('img/bgcalendrier.jpg') }}) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		
+		}
+  </style>
+{% endblock %}
